@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; configuration.title = "Seleccionar imagen"; ObjectID = "JMZ-SM-T9u"; */
+"JMZ-SM-T9u.configuration.title" = "Select Image";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JMZ-SM-T9u"; */
+"JMZ-SM-T9u.normalTitle" = "Select image";
+
+/* Class = "UIButton"; configuration.title = "Exportar"; ObjectID = "qL2-Tn-TQL"; */
+"qL2-Tn-TQL.configuration.title" = "Export";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qL2-Tn-TQL"; */
+"qL2-Tn-TQL.normalTitle" = "Export";

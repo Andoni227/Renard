@@ -1,0 +1,161 @@
+//
+//  ViewController.swift
+//  Renard
+//
+//  Created by Andoni Suarez on 11/06/23.
+//
+
+import UIKit
+import Lottie
+import Photos
+
+class ImagePreviewVC: UIViewController{
+    
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var btnSave: UIBarButtonItem!
+    @IBOutlet weak var btnShare: UIBarButtonItem!
+    @IBOutlet weak var swtch: UISwitch!
+    @IBOutlet weak var lblIndicator: UILabel!
+    @IBOutlet weak var btnClose: UIButton!
+    @IBOutlet weak var navBar: UIView!
+    @IBOutlet weak var swtchView: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
+    
+    var receivedAsset: PHAsset?
+    var selectedObject: ImageObject?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        customizeView()
+        loadAsset()
+    }
+    
+    func customizeView(){
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.montserratMedium(ofSize: 15.0)
+        ]
+        btnSave.setTitleTextAttributes(attributes, for: .normal)
+        lblIndicator.font = UIFont.montserratMedium(ofSize: 15.0)
+        lblTitle.font = UIFont.montserratMedium(ofSize: 15.0)
+        lblTitle.textColor = .white
+        self.swtchView.backgroundColor = UIColor.renardDarkBlue()
+        self.view.backgroundColor = UIColor.renardBackgroundHeavy()
+        self.navBar.backgroundColor = UIColor.renardDarkBlue()
+        
+    }
+    
+    func loadAsset(){
+        DispatchQueue.main.async { [self] in
+            btnSave.customView?.isUserInteractionEnabled = false
+            btnShare.customView?.isUserInteractionEnabled = false
+            showLoading(title: "Descargando...")
+        }
+        
+        receivedAsset?.isLocalItem(completion: { [self] success in
+            hideLoading(completion: { [self] in
+                if success{
+                    if let asset = receivedAsset{
+                        asset.toImageObject(completion: { [self] object in
+                            DispatchQueue.main.async { [self] in
+                                btnSave.customView?.isUserInteractionEnabled = true
+                                btnShare.customView?.isUserInteractionEnabled = true
+                                imgView.image = object.image
+                                selectedObject = object
+                            }
+                            
+                            if receivedAsset?.getType() == .HEIC{
+                                btnSave.isEnabled = false
+                                btnShare.isEnabled = false
+                            }
+                        })
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.btnSave.isEnabled = false
+                        self.btnShare.isEnabled = false
+                        self.showAlertWithLottie(lottie: .FoxUpset, labelText: "No se pudo descargar la imagen original...", buttonText: "Reintentar", handler: {_ in
+                            self.dismiss(animated: true)
+                        })
+                    }
+                }
+            })
+        })
+    }
+    
+    @IBAction func close(_ sender: UIButton){
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func exportImage(_ sender: UIButton){
+        showLoading()
+        
+        let ctx = CIContext()
+        if var ciImage = CIImage(image: selectedObject?.image ?? UIImage()){
+            
+            if let photoMetaData = selectedObject?.metadata{
+                ciImage = addMetadataToCIImage(ciImage: ciImage, metadata: photoMetaData)
+            }
+            
+            if let dateTime = selectedObject?.dateTime{
+                ciImage = addCustomDateTimeToCIImage(ciImage: ciImage, dateTime: dateTime)
+            }
+            
+            let data = ctx.heifRepresentation(of: ciImage, format: .RGBA8, colorSpace: ctx.workingColorSpace!, options: [:])
+            
+            let activityViewController = UIActivityViewController(activityItems: [data!], applicationActivities: nil)
+            self.hideLoading {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [self] in
+                    self.present(activityViewController, animated: true, completion: nil)
+                })
+            }
+        }
+        
+    }
+    
+    @IBAction func saveToCameraRoll(_ sender: UIButton){
+        showLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [self] in
+            let ctx = CIContext()
+            if var ciImage = CIImage(image: selectedObject?.image ?? UIImage()){
+                
+                if let photoMetaData = selectedObject?.metadata{
+                    ciImage = addMetadataToCIImage(ciImage: ciImage, metadata: photoMetaData)
+                }
+                
+                if let dateTime = selectedObject?.dateTime{
+                    ciImage = addCustomDateTimeToCIImage(ciImage: ciImage, dateTime: dateTime)
+                }
+                
+                if let data = ctx.heifRepresentation(of: ciImage, format: .RGBA8, colorSpace: ctx.workingColorSpace!, options: [:]){
+                    
+                    PHPhotoLibrary.shared().performChanges {
+                        let creationRequest = PHAssetCreationRequest.forAsset()
+                        creationRequest.addResource(with: .photo, data: data, options: nil)
+                        creationRequest.creationDate = self.selectedObject?.dateData ?? self.selectedObject?.dateTime?.stringToDate(format: "yyyy-MM-dd HH:mm:ss")
+                        
+                    } completionHandler: { success, error in
+                        if let error = error {
+                            self.showAlertWithLottie(lottie: .FoxUpset, labelText: "Ocurrió un error desconocido al guardar 🤨 \n\(error.localizedDescription)")
+                        } else {
+                            self.clearTemporaryDirectory()
+                        }
+                    }
+                    
+                    self.hideLoading {
+                        self.showAlertWithLottie(lottie: .FoxSuccess, labelText: "¡Imagen guardada con éxito!", buttonText: "Aceptar", handler: { _ in
+                            if self.swtch.isOn{
+                                if let asset = self.receivedAsset{
+                                    self.delete(assets: [asset])
+                                }
+                            }else{
+                                self.dismiss(animated: true, completion: {
+                                    NotificationCenter.default.post(name: Notification.Name("updateLibrary"), object: nil)
+                                })
+                            }
+                        })
+                    }
+                }
+            }
+        })
+    }
+}
