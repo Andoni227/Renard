@@ -14,6 +14,10 @@ class MainDashboardVC: UIViewController {
     @IBOutlet weak var photoLibraryCollectionView: UICollectionView!
     @IBOutlet weak var btnExport: UIButton!
     @IBOutlet weak var btnSelect: UIBarButtonItem!
+    @IBOutlet weak var swtchView: UIView!
+    @IBOutlet weak var swtch: UISwitch!
+    @IBOutlet weak var lblSwtch: UILabel!
+    @IBOutlet weak var bottomView: UIView!
     
     var photos: [AssetObject] = []
     var dataTypes: [FormatObject] = []
@@ -23,8 +27,12 @@ class MainDashboardVC: UIViewController {
             if enableSelection{
                 if cacheImages.filter({ $0.isSelected  == true }).count > 0{
                     btnExport.isHidden = false
+                    swtchView.isHidden = false
+                    bottomView.isHidden = false
                 }else{
                     btnExport.isHidden = true
+                    swtchView.isHidden = true
+                    bottomView.isHidden = true
                 }
             }
         }
@@ -74,6 +82,9 @@ class MainDashboardVC: UIViewController {
     
     func customizeView(){
         btnExport.layer.cornerRadius = 10.0
+        
+        swtchView.backgroundColor = UIColor.renardDarkBlue()
+        bottomView.backgroundColor = UIColor.renardDarkBlue()
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,  NSAttributedString.Key.font: UIFont.montserratMedium(ofSize: 16.0)]
         
@@ -129,8 +140,10 @@ class MainDashboardVC: UIViewController {
         var avaliableFormats: Set<ImageType> = []
         
         fetchResult.enumerateObjects { (asset, _, _) in
-            self.photos.append(AssetObject.init(asset: asset, format: asset.getType()))
-            avaliableFormats.insert(asset.getType())
+            if asset.getType() != .HEIC{
+                self.photos.append(AssetObject.init(asset: asset, format: asset.getType()))
+                avaliableFormats.insert(asset.getType())
+            }
         }
         
         for format in avaliableFormats{
@@ -218,14 +231,15 @@ class MainDashboardVC: UIViewController {
         }else{
             self.hideLoading {
                 self.showAlertWithLottie(lottie: .FoxUpset, labelText: "Exportación completada", handler: { [self] _ in
-                    
-                    var assetsToRemove: [PHAsset] = []
-                    
-                    for item in imagesToExportMirror{
-                        assetsToRemove.append(item.asset)
+                    if swtch.isOn{
+                        var assetsToRemove: [PHAsset] = []
+                        
+                        for item in imagesToExportMirror{
+                            assetsToRemove.append(item.asset)
+                        }
+                        
+                        self.delete(assets: assetsToRemove)
                     }
-                    
-                    self.delete(assets: assetsToRemove)
                 })
                 self.updateLibrary()
                 
@@ -275,6 +289,8 @@ class MainDashboardVC: UIViewController {
                     sender.title = "Seleccionar"
                     enableSelection = false
                     btnExport.isHidden = true
+                    swtchView.isHidden = true
+                    bottomView.isHidden = true
                     
                     for n in 0..<cacheImages.count{
                         cacheImages[n].isSelected = false

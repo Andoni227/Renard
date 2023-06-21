@@ -183,7 +183,7 @@
                                 <cells/>
                             </collectionView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjP-2h-dGD">
-                                <rect key="frame" x="258.33333333333331" y="768" width="118.66666666666669" height="40"/>
+                                <rect key="frame" x="258.33333333333331" y="698" width="118.66666666666669" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="c73-4K-l7X"/>
@@ -195,20 +195,59 @@
                                     <action selector="saveSelectedImages:" destination="AQM-Ne-41H" eventType="touchUpInside" id="YVZ-sp-eMy"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lC-mF-aKb">
+                                <rect key="frame" x="0.0" y="758" width="393" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eliminar imagenes originales después de guardar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNK-4c-vzw">
+                                        <rect key="frame" x="16" y="9.6666666666666288" width="302" height="40.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SmQ-gt-0Ls">
+                                        <rect key="frame" x="328" y="14.666666666666629" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="4z9-e0-fYh"/>
+                                            <constraint firstAttribute="height" constant="31" id="JR2-Sx-ybW"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.41712404780000001" green="0.50806708629999997" blue="0.7234059343" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SmQ-gt-0Ls" firstAttribute="centerY" secondItem="QNK-4c-vzw" secondAttribute="centerY" id="1Ko-yP-Eaf"/>
+                                    <constraint firstItem="QNK-4c-vzw" firstAttribute="centerY" secondItem="4lC-mF-aKb" secondAttribute="centerY" id="1ZG-wy-YAN"/>
+                                    <constraint firstItem="QNK-4c-vzw" firstAttribute="leading" secondItem="4lC-mF-aKb" secondAttribute="leading" constant="16" id="ScH-aU-kws"/>
+                                    <constraint firstItem="SmQ-gt-0Ls" firstAttribute="leading" secondItem="QNK-4c-vzw" secondAttribute="trailing" constant="10" id="WjB-fq-SZ0"/>
+                                    <constraint firstAttribute="trailing" secondItem="SmQ-gt-0Ls" secondAttribute="trailing" constant="16" id="XQD-jg-Si3"/>
+                                    <constraint firstAttribute="height" constant="60" id="aVk-tM-QKd"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="qHz-fI-DbH"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWi-yQ-whf">
+                                <rect key="frame" x="0.0" y="818" width="393" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Cr-l8-n8K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ggf-Tu-E4T" firstAttribute="leading" secondItem="7Cr-l8-n8K" secondAttribute="leading" id="3eK-gP-VrH"/>
+                            <constraint firstItem="4lC-mF-aKb" firstAttribute="leading" secondItem="7Cr-l8-n8K" secondAttribute="leading" id="5Ni-sN-VPq"/>
                             <constraint firstItem="ggf-Tu-E4T" firstAttribute="top" secondItem="7Cr-l8-n8K" secondAttribute="top" constant="10" id="6p0-4s-kkD"/>
                             <constraint firstItem="8ws-Xw-APP" firstAttribute="top" secondItem="ggf-Tu-E4T" secondAttribute="bottom" id="9fh-u2-Llj"/>
+                            <constraint firstItem="7Cr-l8-n8K" firstAttribute="trailing" secondItem="tWi-yQ-whf" secondAttribute="trailing" id="IQM-Pu-M7t"/>
                             <constraint firstItem="7Cr-l8-n8K" firstAttribute="trailing" secondItem="ggf-Tu-E4T" secondAttribute="trailing" id="Ivn-Gi-Wdh"/>
                             <constraint firstItem="7Cr-l8-n8K" firstAttribute="trailing" secondItem="SjP-2h-dGD" secondAttribute="trailing" constant="16" id="Kp6-uU-Aln"/>
-                            <constraint firstItem="7Cr-l8-n8K" firstAttribute="bottom" secondItem="SjP-2h-dGD" secondAttribute="bottom" constant="10" id="U1K-k5-HIw"/>
+                            <constraint firstAttribute="bottom" secondItem="tWi-yQ-whf" secondAttribute="bottom" id="O2u-qa-qCT"/>
+                            <constraint firstItem="4lC-mF-aKb" firstAttribute="trailing" secondItem="7Cr-l8-n8K" secondAttribute="trailing" id="ZcO-gX-Aky"/>
                             <constraint firstAttribute="bottom" secondItem="8ws-Xw-APP" secondAttribute="bottom" id="dEN-Ni-TKj"/>
+                            <constraint firstItem="tWi-yQ-whf" firstAttribute="leading" secondItem="7Cr-l8-n8K" secondAttribute="leading" id="ejC-V0-UkH"/>
                             <constraint firstItem="SjP-2h-dGD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Cr-l8-n8K" secondAttribute="leading" symbolic="YES" id="hbD-GQ-96F"/>
+                            <constraint firstItem="4lC-mF-aKb" firstAttribute="top" secondItem="SjP-2h-dGD" secondAttribute="bottom" constant="20" id="lkv-c7-oOW"/>
                             <constraint firstItem="7Cr-l8-n8K" firstAttribute="trailing" secondItem="8ws-Xw-APP" secondAttribute="trailing" id="sa1-9q-sas"/>
                             <constraint firstItem="8ws-Xw-APP" firstAttribute="leading" secondItem="7Cr-l8-n8K" secondAttribute="leading" id="uvf-Wn-q6b"/>
+                            <constraint firstItem="tWi-yQ-whf" firstAttribute="top" secondItem="4lC-mF-aKb" secondAttribute="bottom" id="uz1-sq-142"/>
+                            <constraint firstItem="7Cr-l8-n8K" firstAttribute="bottom" secondItem="4lC-mF-aKb" secondAttribute="bottom" id="zrQ-Ha-2du"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Renard" largeTitleDisplayMode="never" id="LaG-2w-Dyy">
@@ -226,9 +265,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomView" destination="tWi-yQ-whf" id="Qel-FH-76c"/>
                         <outlet property="btnExport" destination="SjP-2h-dGD" id="CEe-83-Ntq"/>
                         <outlet property="btnSelect" destination="AU2-TF-Zsn" id="F2q-kq-rtn"/>
+                        <outlet property="lblSwtch" destination="QNK-4c-vzw" id="kex-7s-Vyi"/>
                         <outlet property="photoLibraryCollectionView" destination="8ws-Xw-APP" id="fb6-Mf-ktc"/>
+                        <outlet property="swtch" destination="SmQ-gt-0Ls" id="3z1-8c-RYQ"/>
+                        <outlet property="swtchView" destination="4lC-mF-aKb" id="Rul-9t-vn0"/>
                         <outlet property="titleCollectionView" destination="ggf-Tu-E4T" id="91T-7m-BqZ"/>
                     </connections>
                 </viewController>

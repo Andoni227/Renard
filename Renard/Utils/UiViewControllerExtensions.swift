@@ -21,7 +21,9 @@ extension UIViewController{
         
         // Agregar los metadatos al diccionario de propiedades existente
         for (key, value) in metadata {
-            properties[key] = value
+            if key != "Orientation"{
+                properties[key] = value
+            }
         }
         
         // Crear un nuevo CIImage con las propiedades actualizadas
@@ -75,13 +77,9 @@ extension UIViewController{
             
         }, completionHandler: { success, error in
             DispatchQueue.main.async {
-                if success {
-                    self.dismiss(animated: true, completion: {
-                        NotificationCenter.default.post(name: Notification.Name("updateLibrary"), object: nil)
-                    })
-                } else {
-                    self.showAlertWithLottie(lottie: .FoxUpset, labelText: "No se pudo eliminar 🤨")
-                }
+                self.dismiss(animated: true, completion: {
+                    NotificationCenter.default.post(name: Notification.Name("updateLibrary"), object: nil)
+                })
             }
         })
     }
