@@ -140,10 +140,8 @@ class MainDashboardVC: UIViewController {
         var avaliableFormats: Set<ImageType> = []
         
         fetchResult.enumerateObjects { (asset, _, _) in
-            if asset.getType() != .HEIC{
-                self.photos.append(AssetObject.init(asset: asset, format: asset.getType()))
+                self.photos.append(AssetObject.init(asset: asset, format: asset.getType(), size: asset.getSize()))
                 avaliableFormats.insert(asset.getType())
-            }
         }
         
         for format in avaliableFormats{
@@ -151,6 +149,12 @@ class MainDashboardVC: UIViewController {
         }
         
         dataTypes = dataTypes.sorted(by: { $0.count > $1.count })
+        
+        assetsLibrary.shared.photos = photos
+        assetsLibrary.shared.dataTypes = dataTypes
+        
+        dataTypes = dataTypes.filter({ $0.imageType != .HEIC })
+        photos = photos.filter({ $0.format != .HEIC })
         
         var updateScroll = false
         

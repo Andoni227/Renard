@@ -83,4 +83,13 @@ extension PHAsset {
             completion(image)
         }
     }
+    
+    func getSize() -> Int{
+        let width = Double(self.pixelWidth)
+        let height = Double(self.pixelHeight)
+        
+        let resolution = Int((width * height / 1000000).rounded())
+        
+        return resolution
+    }
 }

@@ -22,6 +22,10 @@ public extension UICollectionViewCell {
     class var identifier: String { return String(describing: self) }
 }
 
+public extension UITableViewCell{
+    class var identifier: String { return String(describing: self) }
+}
+
 extension UIButton{
     func makeRoundedWithShadow(){
         self.layer.cornerRadius = self.bounds.width / 2

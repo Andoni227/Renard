@@ -19,6 +19,10 @@ class AboutAppVC: UIViewController {
         self.view.backgroundColor = UIColor.renardBackgroundHeavy()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,  NSAttributedString.Key.font: UIFont.montserratMedium(ofSize: 16.0)]
         
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            self.title = "Renard V \(version)"
+        }
+        
         options.append(aboutUsObject.init(section: "¿Para qué sirve Renard?", content: ["Renard pemite convertir las imagenes de tu galería a formato HEIF, reduciendo considerablemente el peso de la imagen sin compremeter la calidad y conservando todos sus metadatos (ubicación, fecha y hora, información de la cámara, parametros)."]))
         options.append(aboutUsObject.init(section: "¿Cómo se usa?", content: ["Selecciona una o varias fotos desde la vista de galería, da click en guardar y Renard convertirá las imaganes seleccionadas a HEIF, y las guardará en tu galería, después te dará la opción de eliminar la imagen original para evitar tener dos fotos iguales."]))
         options.append(aboutUsObject.init(section: "Borré una foto original y quiero recuperarla", content: ["No te preocupes, las fotos eliminadas por Renard se guardan en la carpeta de eliminados de tu galería, si lo necesitas desde ahí la puedes recuperar."]))
@@ -37,6 +41,13 @@ class AboutAppVC: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barTintColor = UIColor.renardBackgroundHeavy()
     }
+    
+    @IBAction func openStatistics(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "StatisticsVC") as? StatisticsVC {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension AboutAppVC: UITableViewDelegate, UITableViewDataSource{
@@ -48,7 +59,7 @@ extension AboutAppVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: table.frame.width, height: 30))
         view.backgroundColor =  UIColor.renardBoldBlue()
-              
+        
         let lbl = UILabel(frame: CGRect(x: 15, y: -10, width: view.frame.width - 15, height: 30))
         lbl.numberOfLines = 0
         lbl.font = UIFont.montserratBold(ofSize: 13.0)
@@ -85,7 +96,7 @@ extension AboutAppVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let text = options[indexPath.section].content[indexPath.row]
+        let text = options[indexPath.section].content[indexPath.row]
         switch text{
         case "Cảnh Ngô - LottieFiles ↗️":
             if let url = URL(string: "https://lottiefiles.com/canhngo") {
@@ -101,8 +112,8 @@ extension AboutAppVC: UITableViewDelegate, UITableViewDataSource{
             }
         case "Valorar Renard ⭐️⭐️⭐️⭐️⭐️":
             if let windowScene = UIApplication.shared.windows.first?.windowScene {
-                        SKStoreReviewController.requestReview(in: windowScene)
-                    }
+                SKStoreReviewController.requestReview(in: windowScene)
+            }
         case "Contacto ↗️":
             if let url = URL(string: "https://www.renardapp.dev") {
                 if UIApplication.shared.canOpenURL(url) {

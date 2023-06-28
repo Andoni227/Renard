@@ -279,7 +279,7 @@
             </objects>
             <point key="canvasLocation" x="509" y="32"/>
         </scene>
-        <!--Renard V 1.0.0-->
+        <!--Renard-->
         <scene sceneID="T0i-7U-SwG">
             <objects>
                 <viewController id="bwE-Kf-c7L" customClass="AboutAppVC" customModule="Renard" customModuleProvider="target" sceneMemberID="viewController">
@@ -301,7 +301,15 @@
                             <constraint firstItem="BeN-ai-tk0" firstAttribute="trailing" secondItem="gB0-gt-nGF" secondAttribute="trailing" id="x5o-6c-aEe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Renard V 1.0.0" id="FJU-iE-n2H"/>
+                    <navigationItem key="navigationItem" title="Renard" id="FJU-iE-n2H">
+                        <barButtonItem key="rightBarButtonItem" image="speedometer" catalog="system" id="Zoq-6l-YSl">
+                            <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="openStatistics" destination="bwE-Kf-c7L" id="NUa-Go-iH1"/>
+                                <segue destination="KI3-d3-8Y5" kind="show" id="9Zc-sP-U8i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="gB0-gt-nGF" id="AR7-1b-RRB"/>
                     </connections>
@@ -309,6 +317,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfz-Bo-GQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1343" y="765"/>
+        </scene>
+        <!--Estadisticas de la galería-->
+        <scene sceneID="oZK-Xh-Kqw">
+            <objects>
+                <viewController storyboardIdentifier="StatisticsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KI3-d3-8Y5" customClass="StatisticsVC" customModule="Renard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GVu-fS-s91">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dcp-6V-4oI">
+                                <rect key="frame" x="36" y="139" width="321" height="643"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9ay-vU-fv6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9ay-vU-fv6" firstAttribute="bottom" secondItem="Dcp-6V-4oI" secondAttribute="bottom" constant="36" id="2TU-fE-Kyy"/>
+                            <constraint firstItem="Dcp-6V-4oI" firstAttribute="leading" secondItem="9ay-vU-fv6" secondAttribute="leading" constant="36" id="WWZ-Ix-sIe"/>
+                            <constraint firstItem="Dcp-6V-4oI" firstAttribute="top" secondItem="9ay-vU-fv6" secondAttribute="top" constant="36" id="ZFb-Y4-G6L"/>
+                            <constraint firstItem="9ay-vU-fv6" firstAttribute="trailing" secondItem="Dcp-6V-4oI" secondAttribute="trailing" constant="36" id="dI6-hD-VDW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Estadisticas de la galería" id="Jd4-sg-YIo"/>
+                    <connections>
+                        <outlet property="table" destination="Dcp-6V-4oI" id="wyH-kS-Fit"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5li-5h-djQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2208" y="765"/>
         </scene>
         <!--Acerca de -->
         <scene sceneID="gnP-G1-jbx">
@@ -354,6 +394,7 @@
     <resources>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="speedometer" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="AccentColor">

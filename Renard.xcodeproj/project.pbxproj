@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F006F4B02A461FF300DAA1EB /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006F4AF2A461FF300DAA1EB /* StatisticsVC.swift */; };
+		F006F4B22A46200200DAA1EB /* SwiftUITV.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006F4B12A46200200DAA1EB /* SwiftUITV.swift */; };
 		F008C2C42A37A6F900DAB89B /* MediaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008C2C32A37A6F900DAB89B /* MediaExtensions.swift */; };
 		F03A3AF92A3E701B007CDBB6 /* AboutAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A3AF82A3E701B007CDBB6 /* AboutAppVC.swift */; };
 		F03A3AFB2A3E7718007CDBB6 /* OtherStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A3AFA2A3E7718007CDBB6 /* OtherStructs.swift */; };
@@ -19,6 +21,8 @@
 		F04E038F2A3906690042E8A9 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04E038D2A3906690042E8A9 /* PhotoCollectionViewCell.swift */; };
 		F04E03902A3906690042E8A9 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04E038E2A3906690042E8A9 /* PhotoCollectionViewCell.xib */; };
 		F04E03922A39350A0042E8A9 /* fox_sad.json in Resources */ = {isa = PBXBuildFile; fileRef = F04E03912A39350A0042E8A9 /* fox_sad.json */; };
+		F061C3142A4BB04200FDBAB2 /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061C3122A4BB04200FDBAB2 /* StatisticsTableViewCell.swift */; };
+		F061C3152A4BB04200FDBAB2 /* StatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F061C3132A4BB04200FDBAB2 /* StatisticsTableViewCell.xib */; };
 		F08244992A367B31007379BA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F08244982A367B31007379BA /* Lottie */; };
 		F082449D2A36801A007379BA /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = F082449C2A36801A007379BA /* cat.json */; };
 		F08244A02A3680C5007379BA /* UiViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082449F2A3680C5007379BA /* UiViewControllerExtensions.swift */; };
@@ -35,9 +39,12 @@
 		F0E8DCE62A3D2F9C00E7CCE1 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E8DCD82A3D2F9600E7CCE1 /* Montserrat-Medium.ttf */; };
 		F0E8DCEA2A3D2F9C00E7CCE1 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E8DCD22A3D2F9600E7CCE1 /* Montserrat-Bold.ttf */; };
 		F0E8DCEB2A3D2F9C00E7CCE1 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E8DCDE2A3D2F9600E7CCE1 /* Montserrat-Regular.ttf */; };
+		F0EE602F2A48DE2400AB5AAC /* CacheDataSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE602E2A48DE2400AB5AAC /* CacheDataSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F006F4AF2A461FF300DAA1EB /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
+		F006F4B12A46200200DAA1EB /* SwiftUITV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITV.swift; sourceTree = "<group>"; };
 		F008C2C32A37A6F900DAB89B /* MediaExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaExtensions.swift; sourceTree = "<group>"; };
 		F03A3AF82A3E701B007CDBB6 /* AboutAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppVC.swift; sourceTree = "<group>"; };
 		F03A3AFA2A3E7718007CDBB6 /* OtherStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherStructs.swift; sourceTree = "<group>"; };
@@ -50,6 +57,8 @@
 		F04E038D2A3906690042E8A9 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F04E038E2A3906690042E8A9 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		F04E03912A39350A0042E8A9 /* fox_sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fox_sad.json; sourceTree = "<group>"; };
+		F061C3122A4BB04200FDBAB2 /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
+		F061C3132A4BB04200FDBAB2 /* StatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsTableViewCell.xib; sourceTree = "<group>"; };
 		F082449C2A36801A007379BA /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat.json; sourceTree = "<group>"; };
 		F082449F2A3680C5007379BA /* UiViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtensions.swift; sourceTree = "<group>"; };
 		F08244A12A368197007379BA /* LoadingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAlert.swift; sourceTree = "<group>"; };
@@ -70,6 +79,7 @@
 		F0E8DCD82A3D2F9600E7CCE1 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F0E8DCDA2A3D2F9600E7CCE1 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		F0E8DCDE2A3D2F9600E7CCE1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		F0EE602E2A48DE2400AB5AAC /* CacheDataSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +98,12 @@
 			isa = PBXGroup;
 			children = (
 				F04E03822A38E0B40042E8A9 /* Cells */,
+				F0EE602E2A48DE2400AB5AAC /* CacheDataSingleton.swift */,
 				F04E037F2A38CF040042E8A9 /* MainDashboardVC.swift */,
 				F09D9EDA2A3670AB00884A73 /* ImagePreviewVC.swift */,
 				F03A3AF82A3E701B007CDBB6 /* AboutAppVC.swift */,
+				F006F4AF2A461FF300DAA1EB /* StatisticsVC.swift */,
+				F006F4B12A46200200DAA1EB /* SwiftUITV.swift */,
 			);
 			path = MainDashboard;
 			sourceTree = "<group>";
@@ -98,6 +111,7 @@
 		F04E03822A38E0B40042E8A9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F061C3112A4BB02E00FDBAB2 /* StatisticsCell */,
 				F04E03882A39063E0042E8A9 /* PhotoCell */,
 				F04E03872A39062F0042E8A9 /* TitleCell */,
 			);
@@ -120,6 +134,15 @@
 				F04E038E2A3906690042E8A9 /* PhotoCollectionViewCell.xib */,
 			);
 			path = PhotoCell;
+			sourceTree = "<group>";
+		};
+		F061C3112A4BB02E00FDBAB2 /* StatisticsCell */ = {
+			isa = PBXGroup;
+			children = (
+				F061C3122A4BB04200FDBAB2 /* StatisticsTableViewCell.swift */,
+				F061C3132A4BB04200FDBAB2 /* StatisticsTableViewCell.xib */,
+			);
+			path = StatisticsCell;
 			sourceTree = "<group>";
 		};
 		F082449A2A367B6D007379BA /* Frameworks */ = {
@@ -284,6 +307,7 @@
 				F04E03862A38E7C80042E8A9 /* TitleCollectionViewCell.xib in Resources */,
 				F04E03922A39350A0042E8A9 /* fox_sad.json in Resources */,
 				F04E037C2A38C81B0042E8A9 /* fox_success.json in Resources */,
+				F061C3152A4BB04200FDBAB2 /* StatisticsTableViewCell.xib in Resources */,
 				F0E8DCEA2A3D2F9C00E7CCE1 /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,9 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F061C3142A4BB04200FDBAB2 /* StatisticsTableViewCell.swift in Sources */,
 				F04E037A2A38C40F0042E8A9 /* AppDataCleaner.swift in Sources */,
 				F008C2C42A37A6F900DAB89B /* MediaExtensions.swift in Sources */,
 				F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */,
+				F0EE602F2A48DE2400AB5AAC /* CacheDataSingleton.swift in Sources */,
 				F08244A02A3680C5007379BA /* UiViewControllerExtensions.swift in Sources */,
 				F03A3AF92A3E701B007CDBB6 /* AboutAppVC.swift in Sources */,
 				F09D9EDB2A3670AB00884A73 /* ImagePreviewVC.swift in Sources */,
@@ -306,9 +332,11 @@
 				F08244AF2A377684007379BA /* Extensions.swift in Sources */,
 				F03A3AFB2A3E7718007CDBB6 /* OtherStructs.swift in Sources */,
 				F09D9ED72A3670AB00884A73 /* AppDelegate.swift in Sources */,
+				F006F4B02A461FF300DAA1EB /* StatisticsVC.swift in Sources */,
 				F09D9ED92A3670AB00884A73 /* SceneDelegate.swift in Sources */,
 				F04E03802A38CF040042E8A9 /* MainDashboardVC.swift in Sources */,
 				F08244A22A368197007379BA /* LoadingAlert.swift in Sources */,
+				F006F4B22A46200200DAA1EB /* SwiftUITV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SF78D67856;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Renard/Info.plist;
@@ -477,7 +505,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -492,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SF78D67856;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Renard/Info.plist;
@@ -510,7 +538,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

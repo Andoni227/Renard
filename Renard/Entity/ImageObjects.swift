@@ -18,6 +18,7 @@ struct ImageObject{
 struct AssetObject{
     var asset: PHAsset
     var format: ImageType
+    var size: Int
     var isSelected: Bool?
 }
 
