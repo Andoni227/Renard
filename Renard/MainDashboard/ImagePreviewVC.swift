@@ -35,6 +35,7 @@ class ImagePreviewVC: UIViewController{
             .font: UIFont.montserratMedium(ofSize: 15.0)
         ]
         btnSave.setTitleTextAttributes(attributes, for: .normal)
+        lblIndicator.text = NSLocalizedString("deleteAfterSaveOne", comment: "")
         lblIndicator.font = UIFont.montserratMedium(ofSize: 15.0)
         lblTitle.font = UIFont.montserratMedium(ofSize: 15.0)
         lblTitle.textColor = .white
@@ -48,7 +49,7 @@ class ImagePreviewVC: UIViewController{
         DispatchQueue.main.async { [self] in
             btnSave.customView?.isUserInteractionEnabled = false
             btnShare.customView?.isUserInteractionEnabled = false
-            showLoading(title: "Descargando...")
+            showLoading(title: NSLocalizedString("downloading", comment: ""))
         }
         
         receivedAsset?.isLocalItem(completion: { [self] success in
@@ -73,7 +74,7 @@ class ImagePreviewVC: UIViewController{
                     DispatchQueue.main.async {
                         self.btnSave.isEnabled = false
                         self.btnShare.isEnabled = false
-                        self.showAlertWithLottie(lottie: .FoxUpset, labelText: "No se pudo descargar la imagen original...", buttonText: "Reintentar", handler: {_ in
+                        self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("downloadFailed", comment: ""), buttonText: NSLocalizedString("retry", comment: ""), handler: {_ in
                             self.dismiss(animated: true)
                         })
                     }
@@ -135,14 +136,14 @@ class ImagePreviewVC: UIViewController{
                         
                     } completionHandler: { success, error in
                         if let error = error {
-                            self.showAlertWithLottie(lottie: .FoxUpset, labelText: "Ocurrió un error desconocido al guardar 🤨 \n\(error.localizedDescription)")
+                            self.showAlertWithLottie(lottie: .FoxUpset, labelText: "\(NSLocalizedString("unknownErrorSaving", comment: "")) \n\(error.localizedDescription)")
                         } else {
                             self.clearTemporaryDirectory()
                         }
                     }
                     
                     self.hideLoading {
-                        self.showAlertWithLottie(lottie: .FoxSuccess, labelText: "¡Imagen guardada con éxito!", buttonText: "Aceptar", handler: { _ in
+                        self.showAlertWithLottie(lottie: .FoxSuccess, labelText: NSLocalizedString("saveSuccess", comment: ""), buttonText: NSLocalizedString("accept", comment: ""), handler: { _ in
                             if self.swtch.isOn{
                                 if let asset = self.receivedAsset{
                                     self.delete(assets: [asset])

@@ -41,7 +41,7 @@ extension UIViewController{
             
             let label = UILabel(frame: CGRect(x: 0, y: viewHeight - 60, width: viewHeight, height: 30))
             label.textAlignment = .center
-            label.text = title ?? "Cargando..."
+            label.text = title ?? NSLocalizedString("loading", comment: "")
             label.textColor = .black
             label.font = UIFont.boldSystemFont(ofSize: 15.0)
             
@@ -121,7 +121,7 @@ extension UIViewController{
             ])
             
             // Crear el botón de cerrar
-            let closeButton = UIAlertAction(title: buttonText ?? "Aceptar", style: .default, handler: handler)
+            let closeButton = UIAlertAction(title: buttonText ?? NSLocalizedString("accept", comment: ""), style: .default, handler: handler)
             alert.addAction(closeButton)
             
             // Presentar la alerta

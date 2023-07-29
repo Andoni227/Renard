@@ -82,6 +82,8 @@ class MainDashboardVC: UIViewController {
     
     func customizeView(){
         btnExport.layer.cornerRadius = 10.0
+        btnExport.setTitle(NSLocalizedString("save", comment: ""), for: .normal)
+        lblSwtch.text = NSLocalizedString("deleteAfterSave", comment: "")
         
         swtchView.backgroundColor = UIColor.renardDarkBlue()
         bottomView.backgroundColor = UIColor.renardDarkBlue()
@@ -108,7 +110,7 @@ class MainDashboardVC: UIViewController {
                 case .authorized:
                     fetchPhotos()
                 case .denied, .restricted:
-                    showAlertWithLottie(lottie: .FoxUpset, labelText: "La aplicación requiere acceso \na la galería para funcionar 😿", buttonText: "Abrir configuración", handler: {_ in
+                    showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("cameraPermission", comment: ""), buttonText: NSLocalizedString("openSettings", comment: ""), handler: {_ in
                         guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
                             return
                         }
@@ -130,7 +132,7 @@ class MainDashboardVC: UIViewController {
     
     func fetchPhotos() {
         
-        showLoading(title: "Cargando biblioteca...")
+        showLoading(title: NSLocalizedString("loadingLibrary", comment: ""))
         
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
@@ -175,7 +177,7 @@ class MainDashboardVC: UIViewController {
         
         hideLoading {
             DispatchQueue.main.async { [self] in
-                btnSelect.title = "Seleccionar"
+                btnSelect.title = NSLocalizedString("selectTxt", comment: "")
                 enableSelection = false
                 refreshControl.endRefreshing()
                 titleCollectionView.reloadData()
@@ -210,7 +212,7 @@ class MainDashboardVC: UIViewController {
                                         self.hideLoading(completion: {
                                             self.imagesToExport.removeAll()
                                             self.imagesToExportMirror.removeAll()
-                                            self.showAlertWithLottie(lottie: .FoxUpset, labelText: "Ocurrió un error desconocido al guardar 🤨")
+                                            self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("unknownErrorSaving", comment: ""))
                                         })
                                     }else {
                                         if self.imagesToExport.count > 0{
@@ -224,7 +226,7 @@ class MainDashboardVC: UIViewController {
                             })
                         }else{
                             self.hideLoading(completion: {
-                                self.showAlertWithLottie(lottie: .FoxUpset, labelText: "Ocurrió un error al exportar")
+                                self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("unknownErrorExporting", comment: ""))
                             })
                         }
                     }else{
@@ -234,7 +236,7 @@ class MainDashboardVC: UIViewController {
             }
         }else{
             self.hideLoading {
-                self.showAlertWithLottie(lottie: .FoxUpset, labelText: "Exportación completada", handler: { [self] _ in
+                self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("exportComplete", comment: ""), handler: { [self] _ in
                     if swtch.isOn{
                         var assetsToRemove: [PHAsset] = []
                         
@@ -255,7 +257,7 @@ class MainDashboardVC: UIViewController {
         if alertHasShowed == false{
             let selectedPhotos = cacheImages.filter({ $0.isSelected == true }).count
             if selectedPhotos > 40{
-                showAlertWithLottie(lottie: .FoxUpset, labelText: "Para evitar tiempos de espera\n largos, considera seleccionar\n menos de 40 fotos", handler: { _ in
+                showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("limitSelectedImages", comment: ""), handler: { _ in
                     self.alertHasShowed = true
                 })
             }
@@ -284,13 +286,13 @@ class MainDashboardVC: UIViewController {
     @IBAction func enableSelection(_ sender: UIBarButtonItem){
         DispatchQueue.main.async { [self] in
             if currentType == .HEIC{
-                showAlertWithLottie(lottie: .FoxUpset, labelText: "Estas imagenes ya están\n comprimidas, elige otro formato,\n  por favor")
+                showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("imagesAlreadyHEIF", comment: ""))
             }else{
-                if sender.title == "Seleccionar"{
+                if sender.title == NSLocalizedString("selectTxt", comment: ""){
                     enableSelection = true
-                    sender.title = "Cancelar"
+                    sender.title = NSLocalizedString("cancel", comment: "")
                 }else{
-                    sender.title = "Seleccionar"
+                    sender.title = NSLocalizedString("selectTxt", comment: "")
                     enableSelection = false
                     btnExport.isHidden = true
                     swtchView.isHidden = true

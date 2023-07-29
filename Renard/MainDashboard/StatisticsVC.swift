@@ -18,15 +18,15 @@ class StatisticsVC: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.renardBackgroundHeavy()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,  NSAttributedString.Key.font: UIFont.montserratMedium(ofSize: 16.0)]
-
+        self.title = NSLocalizedString("StatisticsScreenTitle", comment: "")
         
-        options.append(aboutUsObject.init(section: "Foto de mayor resolución", content: [assetsLibrary.shared.maxResPhoto ?? "-"], tag: 1))
-        options.append(aboutUsObject.init(section: "Foto de menor resolución", content: [assetsLibrary.shared.lowResPhoto ?? "-"], tag: 2))
-        options.append(aboutUsObject.init(section: "Formato más común", content: [assetsLibrary.shared.mostCommonFormat?.getName ?? "-"]))
-        options.append(aboutUsObject.init(section: "Formato menos común", content: [assetsLibrary.shared.lessCommonFormat?.getName ?? "-"]))
-        options.append(aboutUsObject.init(section: "Fotos totales", content: ["\(assetsLibrary.shared.photos.count)"]))
+        options.append(aboutUsObject.init(section: NSLocalizedString("MaxResPhoto", comment: ""), content: [assetsLibrary.shared.maxResPhoto ?? "-"], tag: 1))
+        options.append(aboutUsObject.init(section: NSLocalizedString("MinusResPhoto", comment: ""), content: [assetsLibrary.shared.lowResPhoto ?? "-"], tag: 2))
+        options.append(aboutUsObject.init(section: NSLocalizedString("MostCommonFormat", comment: ""), content: [assetsLibrary.shared.mostCommonFormat?.getName ?? "-"]))
+        options.append(aboutUsObject.init(section: NSLocalizedString("LessCommonFormat", comment: ""), content: [assetsLibrary.shared.lessCommonFormat?.getName ?? "-"]))
+        options.append(aboutUsObject.init(section: NSLocalizedString("TotalPhotos", comment: ""), content: ["\(assetsLibrary.shared.photos.count)"]))
         for format in assetsLibrary.shared.dataTypes{
-            options.append(aboutUsObject.init(section: "Fotos en \(format.imageType.getName)", content: ["\(format.count)"]))
+            options.append(aboutUsObject.init(section: "\(NSLocalizedString("PhotosFormatPrefix", comment: ""))\(format.imageType.getName)\(NSLocalizedString("PhotosFormatPostFix", comment: ""))", content: ["\(format.count)"]))
         }
      
         table.alwaysBounceVertical = false

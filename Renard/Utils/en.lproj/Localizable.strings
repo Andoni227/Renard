@@ -1,0 +1,59 @@
+selectTxt = "Select";
+cancel = "Cancel";
+save = "Save";
+loading = "Loading...";
+downloading = "Downloading...";
+accept = "Ok";
+exportComplete = "Export completed";
+deleteAfterSave = "Delete original images after saving";
+deleteAfterSaveOne = "Delete original image after saving";
+downloadFailed = "Failed to download the original image...";
+retry = "Retry";
+unknownErrorSaving = "An unknown error occurred while saving 🤨";
+unknownErrorExporting = "An error occurred while exporting.";
+saveSuccess = "Image saved successfully!";
+
+limitSelectedImages = "To avoid long waiting times,\nconsider selecting\nless than 40 photos.";
+imagesAlreadyHEIF = "These images are already\ncompressed, please choose another format.";
+
+loadingLibrary = "Loading library...";
+cameraPermission = "The application requires access \nto the gallery to function 😿";
+openSettings = "Open Settings";
+
+InfoScreen1Title = "What is Renard used for?";
+InfoScreen1Subtitle = "Renard allows you to convert images from your gallery to the HEIF format, significantly reducing the image's file size without compromising quality and preserving all its metadata (location, date and time, camera information, parameters).";
+
+InfoScreen2Title = "How to use?";
+InfoScreen2Subtitle = "Select one or several photos from the gallery view, click on save, and Renard will convert the selected images to HEIF and save them in your gallery. Afterward, you will have the option to delete the original image to avoid having two identical photos.";
+
+InfoScreen3Title = "I deleted an original photo and want to recover it";
+InfoScreen3Subtitle = "Photos deleted by Renard are stored in the 'deleted items' folder in your gallery. If needed, you can recover them from there.";
+
+InfoScreen4Title = "Why aren't all my photos displayed?";
+InfoScreen4Subtitle = "HEIF images are already compressed efficiently enough to reduce their file size further. That's why they are not displayed in the app.";
+
+InfoScreen5Title = "Are my data safe?";
+InfoScreen5Subtitle = "Renard does not collect any data, not even for statistical purposes.";
+
+InfoScreen6Title = "";
+InfoScreen6Subtitle = "Rate Renard ⭐️⭐️⭐️⭐️⭐️";
+
+InfoScreen7Title = "";
+InfoScreen7Subtitle = "Renard uses resources from various artists: ";
+
+InfoScreen8Title = "";
+InfoScreen8Subtitle = "Contact ↗️";
+
+InfoScreen9Title = "";
+InfoScreen9Subtitle = "Privacy Policy ↗️";
+
+
+StatisticsScreenTitle = "Gallery statistics";
+
+MaxResPhoto = "Highest resolution photo";
+MinusResPhoto = "Lowest resolution photo";
+MostCommonFormat = "Most common format";
+LessCommonFormat = "Less common format";
+TotalPhotos = "Total photos";
+PhotosFormatPrefix = "";
+PhotosFormatPostFix = " Photos";

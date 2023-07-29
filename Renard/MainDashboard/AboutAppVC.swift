@@ -23,15 +23,16 @@ class AboutAppVC: UIViewController {
             self.title = "Renard V \(version)"
         }
         
-        options.append(aboutUsObject.init(section: "¿Para qué sirve Renard?", content: ["Renard pemite convertir las imagenes de tu galería a formato HEIF, reduciendo considerablemente el peso de la imagen sin compremeter la calidad y conservando todos sus metadatos (ubicación, fecha y hora, información de la cámara, parametros)."]))
-        options.append(aboutUsObject.init(section: "¿Cómo se usa?", content: ["Selecciona una o varias fotos desde la vista de galería, da click en guardar y Renard convertirá las imaganes seleccionadas a HEIF, y las guardará en tu galería, después te dará la opción de eliminar la imagen original para evitar tener dos fotos iguales."]))
-        options.append(aboutUsObject.init(section: "Borré una foto original y quiero recuperarla", content: ["No te preocupes, las fotos eliminadas por Renard se guardan en la carpeta de eliminados de tu galería, si lo necesitas desde ahí la puedes recuperar."]))
-        options.append(aboutUsObject.init(section: "¿Por qué no se muestran todas mis fotos?", content: ["Las imagenes HEIF ya tienen una compresión lo suficientemente eficiente como para reducir aún más su peso. Por esa razón no se muestran en la app"]))
-        options.append(aboutUsObject.init(section: "¿Mis datos están seguros?", content: ["Renard no recopila ningún tipo de dato, ni siquiera con fines estadisticos."]))
-        options.append(aboutUsObject.init(section: "", content: ["Valorar Renard ⭐️⭐️⭐️⭐️⭐️"], tag: 5))
-        options.append(aboutUsObject.init(section: "", content: ["Renard utiliza recursos de diversos artistas: ", "Cảnh Ngô - LottieFiles ↗️","Solitudinem - LottieFiles ↗️"], tag: 5))
-        options.append(aboutUsObject.init(section: "", content: ["Contacto ↗️"], tag: 5))
-        options.append(aboutUsObject.init(section: "", content: ["Politica de privacidad ↗️"], tag: 5))
+        options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen1Title", comment: ""), content: [NSLocalizedString("InfoScreen1Subtitle", comment: "")]))
+        options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen2Title", comment: ""), content: [NSLocalizedString("InfoScreen2Subtitle", comment: "")]))
+        options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen3Title", comment: ""), content: [NSLocalizedString("InfoScreen3Subtitle", comment: "")]))
+        options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen4Title", comment: ""), content: [NSLocalizedString("InfoScreen4Subtitle", comment: "")]))
+        options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen5Title", comment: ""), content: [NSLocalizedString("InfoScreen5Subtitle", comment: "")]))
+        options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen6Subtitle", comment: "")], tag: 5))
+        
+        options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen7Subtitle", comment: ""), "Cảnh Ngô - LottieFiles ↗️","Solitudinem - LottieFiles ↗️"], tag: 5))
+        options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen8Subtitle", comment: "")], tag: 5))
+        options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen9Subtitle", comment: "")], tag: 5))
         
         table.alwaysBounceVertical = false
         
@@ -110,17 +111,17 @@ extension AboutAppVC: UITableViewDelegate, UITableViewDataSource{
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }
-        case "Valorar Renard ⭐️⭐️⭐️⭐️⭐️":
+        case NSLocalizedString("InfoScreen6Subtitle", comment: ""):
             if let windowScene = UIApplication.shared.windows.first?.windowScene {
                 SKStoreReviewController.requestReview(in: windowScene)
             }
-        case "Contacto ↗️":
+        case NSLocalizedString("InfoScreen8Subtitle", comment: ""):
             if let url = URL(string: "https://www.renardapp.dev") {
                 if UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }
-        case "Politica de privacidad ↗️":
+        case NSLocalizedString("InfoScreen9Subtitle", comment: ""):
             if let url = URL(string: "https://www.renardapp.dev/politica-de-privacidad") {
                 if UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
