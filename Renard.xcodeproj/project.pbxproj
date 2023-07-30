@@ -78,6 +78,9 @@
 		F09D9EE42A3670AC00884A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0DAD1292A75CCEC00EA67AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F0DAD12B2A75CCEF00EA67AE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F0DAD12C2A75DF8100EA67AE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		F0DAD12D2A75DF8100EA67AE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F0DAD12E2A75DF8100EA67AE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F0E8DCD22A3D2F9600E7CCE1 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		F0E8DCD82A3D2F9600E7CCE1 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F0E8DCDA2A3D2F9600E7CCE1 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -280,6 +283,7 @@
 				en,
 				Base,
 				"es-419",
+				es,
 			);
 			mainGroup = F09D9ECA2A3670AB00884A73;
 			packageReferences = (
@@ -354,6 +358,7 @@
 				F09D9EDD2A3670AB00884A73 /* Base */,
 				F08244A52A368D4C007379BA /* es-419 */,
 				F08244A82A368D64007379BA /* en */,
+				F0DAD12C2A75DF8100EA67AE /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			children = (
 				F09D9EE22A3670AC00884A73 /* Base */,
 				F08244A62A368D4C007379BA /* es-419 */,
+				F0DAD12D2A75DF8100EA67AE /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 			children = (
 				F0DAD1292A75CCEC00EA67AE /* en */,
 				F0DAD12B2A75CCEF00EA67AE /* es-419 */,
+				F0DAD12E2A75DF8100EA67AE /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -519,7 +526,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -552,7 +559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Eliminar imagen original después de guardar"; ObjectID = "1Nu-bu-Tae"; */
+"1Nu-bu-Tae.text" = "Eliminar imagen original después de guardar";
+
+/* Class = "UIBarButtonItem"; title = "Seleccionar"; ObjectID = "AU2-TF-Zsn"; */
+"AU2-TF-Zsn.title" = "Seleccionar";
+
+/* Class = "UINavigationItem"; title = "Renard"; ObjectID = "BOn-uS-FDi"; */
+"BOn-uS-FDi.title" = "Renard";
+
+/* Class = "UILabel"; text = "Renard"; ObjectID = "Dag-5D-NuA"; */
+"Dag-5D-NuA.text" = "Renard";
+
+/* Class = "UINavigationItem"; title = "Renard"; ObjectID = "FJU-iE-n2H"; */
+"FJU-iE-n2H.title" = "Renard";
+
+/* Class = "UINavigationItem"; title = "Estadisticas de la galería"; ObjectID = "Jd4-sg-YIo"; */
+"Jd4-sg-YIo.title" = "Estadisticas de la galería";
+
+/* Class = "UINavigationItem"; title = "Renard"; ObjectID = "LaG-2w-Dyy"; */
+"LaG-2w-Dyy.title" = "Renard";
+
+/* Class = "UILabel"; text = "Eliminar imagenes originales después de guardar"; ObjectID = "QNK-4c-vzw"; */
+"QNK-4c-vzw.text" = "Eliminar imagenes originales después de guardar";
+
+/* Class = "UINavigationItem"; title = "Acerca de "; ObjectID = "Qp0-9c-Tx6"; */
+"Qp0-9c-Tx6.title" = "Acerca de ";
+
+/* Class = "UIButton"; configuration.title = "  Guardar"; ObjectID = "SjP-2h-dGD"; */
+"SjP-2h-dGD.configuration.title" = "  Guardar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "SjP-2h-dGD"; */
+"SjP-2h-dGD.normalTitle" = "Button";
