@@ -142,7 +142,7 @@ class MainDashboardVC: UIViewController {
         var avaliableFormats: Set<ImageType> = []
         
         fetchResult.enumerateObjects { (asset, _, _) in
-                self.photos.append(AssetObject.init(asset: asset, format: asset.getType(), size: asset.getSize()))
+                self.photos.append(AssetObject.init(asset: asset, format: asset.getType(), resolution: asset.getResolution()))
                 avaliableFormats.insert(asset.getType())
         }
         

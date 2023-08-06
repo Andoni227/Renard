@@ -84,12 +84,32 @@ extension PHAsset {
         }
     }
     
-    func getSize() -> Int{
+    func getResolution() -> Int{
         let width = Double(self.pixelWidth)
         let height = Double(self.pixelHeight)
         
         let resolution = Int((width * height / 1000000).rounded())
         
         return resolution
+    }
+    
+    func getSize() -> String{
+        let resources = PHAssetResource.assetResources(for: self) // your PHAsset
+        
+        var sizeOnDisk: Int64? = 0
+        
+        if let resource = resources.first {
+            let unsignedInt64 = resource.value(forKey: "fileSize") as? CLong
+            sizeOnDisk = Int64(bitPattern: UInt64(unsignedInt64!))
+        }
+        
+        let formatter:ByteCountFormatter = ByteCountFormatter()
+        formatter.countStyle = .binary
+
+        if let estimatedSize = sizeOnDisk{
+            return formatter.string(fromByteCount: Int64(estimatedSize))
+        }else{
+            return NSLocalizedString("unknown", comment: "")
+        }
     }
 }

@@ -3,6 +3,7 @@ cancel = "Cancelar";
 save = "Guardar";
 loading = "Cargando...";
 downloading = "Descargando...";
+unknown = "Desconocido";
 accept = "Aceptar";
 exportComplete = "Exportación completada";
 deleteAfterSave = "Eliminar imágenes originales después de guardar";

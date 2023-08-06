@@ -60,6 +60,13 @@
 		F04E03912A39350A0042E8A9 /* fox_sad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fox_sad.json; sourceTree = "<group>"; };
 		F061C3122A4BB04200FDBAB2 /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		F061C3132A4BB04200FDBAB2 /* StatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsTableViewCell.xib; sourceTree = "<group>"; };
+		F0675B992A7C83850037D1B1 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		F0675B9A2A7C83850037D1B1 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F0675B9B2A7C83850037D1B1 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F0675B9C2A7C83E50037D1B1 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		F0675B9D2A7C83E50037D1B1 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F0675B9E2A7C83E50037D1B1 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F0675B9F2A7C86940037D1B1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F082449C2A36801A007379BA /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat.json; sourceTree = "<group>"; };
 		F082449F2A3680C5007379BA /* UiViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtensions.swift; sourceTree = "<group>"; };
 		F08244A12A368197007379BA /* LoadingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAlert.swift; sourceTree = "<group>"; };
@@ -284,6 +291,9 @@
 				Base,
 				"es-419",
 				es,
+				"pt-BR",
+				"pt-PT",
+				ko,
 			);
 			mainGroup = F09D9ECA2A3670AB00884A73;
 			packageReferences = (
@@ -359,6 +369,8 @@
 				F08244A52A368D4C007379BA /* es-419 */,
 				F08244A82A368D64007379BA /* en */,
 				F0DAD12C2A75DF8100EA67AE /* es */,
+				F0675B992A7C83850037D1B1 /* pt-BR */,
+				F0675B9C2A7C83E50037D1B1 /* pt-PT */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -369,6 +381,8 @@
 				F09D9EE22A3670AC00884A73 /* Base */,
 				F08244A62A368D4C007379BA /* es-419 */,
 				F0DAD12D2A75DF8100EA67AE /* es */,
+				F0675B9A2A7C83850037D1B1 /* pt-BR */,
+				F0675B9D2A7C83E50037D1B1 /* pt-PT */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -379,6 +393,9 @@
 				F0DAD1292A75CCEC00EA67AE /* en */,
 				F0DAD12B2A75CCEF00EA67AE /* es-419 */,
 				F0DAD12E2A75DF8100EA67AE /* es */,
+				F0675B9B2A7C83850037D1B1 /* pt-BR */,
+				F0675B9E2A7C83E50037D1B1 /* pt-PT */,
+				F0675B9F2A7C86940037D1B1 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

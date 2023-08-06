@@ -1,0 +1,59 @@
+selectTxt = "Selecionar";
+cancel = "Cancelar";
+save = "Guardar";
+loading = "A carregar...";
+downloading = "A descarregar...";
+unknown = "Desconhecido";
+accept = "Ok";
+exportComplete = "Exportação concluída";
+deleteAfterSave = "Eliminar imagens originais após guardar";
+deleteAfterSaveOne = "Eliminar imagem original após guardar";
+downloadFailed = "Falha ao descarregar a imagem original...";
+retry = "Tentar novamente";
+unknownErrorSaving = "Ocorreu um erro desconhecido ao guardar 🤨";
+unknownErrorExporting = "Ocorreu um erro ao exportar.";
+saveSuccess = "Imagem guardada com sucesso!";
+
+limitSelectedImages = "Para evitar tempos de espera longos,\nconsidere selecionar\nmenos de 40 fotos.";
+imagesAlreadyHEIF = "Estas imagens já estão\ncomprimidas. Por favor, escolha outro formato.";
+
+loadingLibrary = "A carregar biblioteca...";
+cameraPermission = "A aplicação requer acesso à galeria para funcionar 😿";
+openSettings = "Abrir Definições";
+
+InfoScreen1Title = "Para que serve o Renard?";
+InfoScreen1Subtitle = "O Renard permite-lhe converter imagens da sua galeria para o formato HEIF, reduzindo significativamente o tamanho do ficheiro da imagem sem comprometer a qualidade e preservando todos os metadados (localização, data e hora, informações da câmara, parâmetros).";
+
+InfoScreen2Title = "Como utilizar?";
+InfoScreen2Subtitle = "Selecione uma ou várias fotos na vista de galeria, clique em guardar e o Renard irá converter as imagens selecionadas para HEIF e guardá-las na sua galeria. Posteriormente, terá a opção de eliminar a imagem original para evitar ter duas fotos idênticas.";
+
+InfoScreen3Title = "Eliminei uma foto original e quero recuperá-la";
+InfoScreen3Subtitle = "As fotos eliminadas pelo Renard são armazenadas na pasta 'itens eliminados' da sua galeria. Se necessário, pode recuperá-las a partir daí.";
+
+InfoScreen4Title = "Porque é que nem todas as minhas fotos são exibidas?";
+InfoScreen4Subtitle = "As imagens HEIF já estão comprimidas de forma suficientemente eficiente para reduzir ainda mais o tamanho do ficheiro. Por isso, não são exibidas na aplicação.";
+
+InfoScreen5Title = "Os meus dados estão seguros?";
+InfoScreen5Subtitle = "O Renard não recolhe quaisquer dados, nem mesmo para fins estatísticos.";
+
+InfoScreen6Title = "";
+InfoScreen6Subtitle = "Classifique o Renard ⭐️⭐️⭐️⭐️⭐️";
+
+InfoScreen7Title = "";
+InfoScreen7Subtitle = "O Renard utiliza recursos de vários artistas: ";
+
+InfoScreen8Title = "";
+InfoScreen8Subtitle = "Contacto ↗️";
+
+InfoScreen9Title = "";
+InfoScreen9Subtitle = "Política de Privacidade ↗️";
+
+StatisticsScreenTitle = "Estatísticas da galeria";
+
+MaxResPhoto = "Foto com a maior resolução";
+MinusResPhoto = "Foto com a menor resolução";
+MostCommonFormat = "Formato mais comum";
+LessCommonFormat = "Formato menos comum";
+TotalPhotos = "Total de fotos";
+PhotosFormatPrefix = "Fotos em ";
+PhotosFormatPostFix = "";

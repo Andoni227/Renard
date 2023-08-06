@@ -29,13 +29,13 @@ internal struct assetsLibrary {
     var lessCommonFormat: ImageType?
     
     mutating func loadStatistics(){
-        if let mostBiggerPhoto = photos.sorted(by: { $0.size > $1.size }).first{
-            maxResPhoto = "\(mostBiggerPhoto.size) MP"
+        if let mostBiggerPhoto = photos.sorted(by: { $0.resolution > $1.resolution }).first{
+            maxResPhoto = "\(mostBiggerPhoto.resolution) MP"
             maxResPhotoAsset = mostBiggerPhoto.asset
             
         }
-        if let mostTinyPhoto = photos.sorted(by: { $0.size > $1.size }).last{
-            lowResPhoto = "\(mostTinyPhoto.size) MP"
+        if let mostTinyPhoto = photos.sorted(by: { $0.resolution > $1.resolution }).last{
+            lowResPhoto = "\(mostTinyPhoto.resolution) MP"
             lowResPhotoAsset = mostTinyPhoto.asset
         }
     }
