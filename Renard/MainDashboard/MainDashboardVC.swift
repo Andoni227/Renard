@@ -29,6 +29,14 @@ class MainDashboardVC: UIViewController {
                     btnExport.isHidden = false
                     swtchView.isHidden = false
                     bottomView.isHidden = false
+                    
+                    var totalSize: Int64 = Int64(0.0)
+                    for item in cacheImages.filter({ $0.isSelected  == true }){
+                        if let imageSize = Int64(item.asset.getSize(format: .inRawData)){
+                            totalSize += imageSize
+                        }
+                    }
+                    lblSwtch.text = "\(NSLocalizedString("deleteAfterSave", comment: "")) (\(totalSize.bytesToReadableSize()))"
                 }else{
                     btnExport.isHidden = true
                     swtchView.isHidden = true

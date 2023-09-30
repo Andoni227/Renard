@@ -10,12 +10,18 @@ import StoreKit
 
 class AboutAppVC: UIViewController {
     
+    @IBOutlet weak var configIcon: UIBarButtonItem!
     @IBOutlet weak var table: UITableView!
     
     var options: [aboutUsObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+        setTable()
+    }
+    
+    func configureView(){
         self.view.backgroundColor = UIColor.renardBackgroundHeavy()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,  NSAttributedString.Key.font: UIFont.montserratMedium(ofSize: 16.0)]
         
@@ -23,6 +29,21 @@ class AboutAppVC: UIViewController {
             self.title = "Renard V \(version)"
         }
         
+        table.alwaysBounceVertical = false
+        table.backgroundColor = UIColor.renardBoldBlue()
+        table.delegate = self
+        table.dataSource = self
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = UIColor.renardBackgroundHeavy()
+        
+        if #available(iOS 17.0, *) {
+            configIcon.image = UIImage(systemName: "gauge.with.dots.needle.67percent")
+        }else{
+            configIcon.image = UIImage(systemName: "speedometer")
+        }
+    }
+    
+    func setTable(){
         options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen1Title", comment: ""), content: [NSLocalizedString("InfoScreen1Subtitle", comment: "")]))
         options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen2Title", comment: ""), content: [NSLocalizedString("InfoScreen2Subtitle", comment: "")]))
         options.append(aboutUsObject.init(section: NSLocalizedString("InfoScreen3Title", comment: ""), content: [NSLocalizedString("InfoScreen3Subtitle", comment: "")]))
@@ -33,14 +54,6 @@ class AboutAppVC: UIViewController {
         options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen7Subtitle", comment: ""), "Cảnh Ngô - LottieFiles ↗️","Solitudinem - LottieFiles ↗️"], tag: 5))
         options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen8Subtitle", comment: "")], tag: 5))
         options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen9Subtitle", comment: "")], tag: 5))
-        
-        table.alwaysBounceVertical = false
-        
-        table.backgroundColor = UIColor.renardBoldBlue()
-        table.delegate = self
-        table.dataSource = self
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barTintColor = UIColor.renardBackgroundHeavy()
     }
     
     @IBAction func openStatistics(){

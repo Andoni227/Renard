@@ -18,6 +18,14 @@ extension String{
     }
 }
 
+extension Int64{
+    func bytesToReadableSize() -> String{
+        let formatter:ByteCountFormatter = ByteCountFormatter()
+        formatter.countStyle = .binary
+        return formatter.string(fromByteCount: self)
+    }
+}
+
 public extension UICollectionViewCell {
     class var identifier: String { return String(describing: self) }
 }

@@ -93,7 +93,7 @@ extension PHAsset {
         return resolution
     }
     
-    func getSize() -> String{
+    func getSize(format: sizeFormat? = .humanReadable) -> String{
         let resources = PHAssetResource.assetResources(for: self) // your PHAsset
         
         var sizeOnDisk: Int64? = 0
@@ -107,9 +107,27 @@ extension PHAsset {
         formatter.countStyle = .binary
 
         if let estimatedSize = sizeOnDisk{
-            return formatter.string(fromByteCount: Int64(estimatedSize))
+            switch format{
+            case .humanReadable:
+                return estimatedSize.bytesToReadableSize()
+            case .inKilobytes:
+                return String(Double(estimatedSize)/1000.0)
+            case .inMegabytes:
+                return String(Double(estimatedSize)/1000000.0)
+            case .inRawData:
+                return String(estimatedSize)
+            case .none:
+                return NSLocalizedString("unknown", comment: "")
+            }
         }else{
             return NSLocalizedString("unknown", comment: "")
         }
     }
+}
+
+enum sizeFormat{
+    case humanReadable
+    case inMegabytes
+    case inKilobytes
+    case inRawData
 }
