@@ -57,3 +57,7 @@ LessCommonFormat = "Formato menos común";
 TotalPhotos = "Fotos totales";
 PhotosFormatPrefix = "Fotos en ";
 PhotosFormatPostFix = "";
+saveMetadataBtn = "Guardar metadatos";
+savedMetadata = "Metadatos guardados";
+saveMetadataAlert = "Elige un nombre para esta cámara, se guardaran los metadatos del modelo y marca de la cámara, los cuales podrás usar después para aplicarlos a otras imagenes";
+cameraName = "Nombre de la cámara"; 

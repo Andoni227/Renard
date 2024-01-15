@@ -12,6 +12,7 @@
 		F008C2C42A37A6F900DAB89B /* MediaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008C2C32A37A6F900DAB89B /* MediaExtensions.swift */; };
 		F03A3AF92A3E701B007CDBB6 /* AboutAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A3AF82A3E701B007CDBB6 /* AboutAppVC.swift */; };
 		F03A3AFB2A3E7718007CDBB6 /* OtherStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A3AFA2A3E7718007CDBB6 /* OtherStructs.swift */; };
+		F045717C2B3A604C00EFE672 /* SavedCamerasList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F045717B2B3A604C00EFE672 /* SavedCamerasList.swift */; };
 		F04E03782A38BD6E0042E8A9 /* fox_load.json in Resources */ = {isa = PBXBuildFile; fileRef = F04E03772A38BD6E0042E8A9 /* fox_load.json */; };
 		F04E037A2A38C40F0042E8A9 /* AppDataCleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04E03792A38C40F0042E8A9 /* AppDataCleaner.swift */; };
 		F04E037C2A38C81B0042E8A9 /* fox_success.json in Resources */ = {isa = PBXBuildFile; fileRef = F04E037B2A38C81B0042E8A9 /* fox_success.json */; };
@@ -49,6 +50,8 @@
 		F008C2C32A37A6F900DAB89B /* MediaExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaExtensions.swift; sourceTree = "<group>"; };
 		F03A3AF82A3E701B007CDBB6 /* AboutAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppVC.swift; sourceTree = "<group>"; };
 		F03A3AFA2A3E7718007CDBB6 /* OtherStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherStructs.swift; sourceTree = "<group>"; };
+		F04571782B3A5D8B00EFE672 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		F045717B2B3A604C00EFE672 /* SavedCamerasList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCamerasList.swift; sourceTree = "<group>"; };
 		F04E03772A38BD6E0042E8A9 /* fox_load.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fox_load.json; sourceTree = "<group>"; };
 		F04E03792A38C40F0042E8A9 /* AppDataCleaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataCleaner.swift; sourceTree = "<group>"; };
 		F04E037B2A38C81B0042E8A9 /* fox_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fox_success.json; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 				F03A3AF82A3E701B007CDBB6 /* AboutAppVC.swift */,
 				F006F4AF2A461FF300DAA1EB /* StatisticsVC.swift */,
 				F006F4B12A46200200DAA1EB /* SwiftUITV.swift */,
+				F045717B2B3A604C00EFE672 /* SavedCamerasList.swift */,
 			);
 			path = MainDashboard;
 			sourceTree = "<group>";
@@ -354,6 +358,7 @@
 				F006F4B02A461FF300DAA1EB /* StatisticsVC.swift in Sources */,
 				F09D9ED92A3670AB00884A73 /* SceneDelegate.swift in Sources */,
 				F04E03802A38CF040042E8A9 /* MainDashboardVC.swift in Sources */,
+				F045717C2B3A604C00EFE672 /* SavedCamerasList.swift in Sources */,
 				F08244A22A368197007379BA /* LoadingAlert.swift in Sources */,
 				F006F4B22A46200200DAA1EB /* SwiftUITV.swift in Sources */,
 			);
@@ -371,6 +376,7 @@
 				F0DAD12C2A75DF8100EA67AE /* es */,
 				F0675B992A7C83850037D1B1 /* pt-BR */,
 				F0675B9C2A7C83E50037D1B1 /* pt-PT */,
+				F04571782B3A5D8B00EFE672 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -525,7 +531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SF78D67856;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Renard/Info.plist;
@@ -543,7 +549,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -558,7 +564,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SF78D67856;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Renard/Info.plist;
@@ -576,7 +582,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

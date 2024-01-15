@@ -14,6 +14,7 @@ class ImagePreviewVC: UIViewController{
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var btnSave: UIBarButtonItem!
     @IBOutlet weak var btnShare: UIBarButtonItem!
+    @IBOutlet weak var btnSaveMetadata: UIBarButtonItem!
     @IBOutlet weak var swtch: UISwitch!
     @IBOutlet weak var lblIndicator: UILabel!
     @IBOutlet weak var btnClose: UIButton!
@@ -35,6 +36,8 @@ class ImagePreviewVC: UIViewController{
             .font: UIFont.montserratMedium(ofSize: 15.0)
         ]
         btnSave.setTitleTextAttributes(attributes, for: .normal)
+        btnSaveMetadata.setTitleTextAttributes(attributes, for: .normal)
+        btnSaveMetadata.title = NSLocalizedString("saveMetadataBtn", comment: "")
         lblIndicator.text = NSLocalizedString("deleteAfterSaveOne", comment: "")
         lblIndicator.font = UIFont.montserratMedium(ofSize: 15.0)
         lblTitle.font = UIFont.montserratMedium(ofSize: 15.0)
@@ -42,7 +45,6 @@ class ImagePreviewVC: UIViewController{
         self.swtchView.backgroundColor = UIColor.renardDarkBlue()
         self.view.backgroundColor = UIColor.renardBackgroundHeavy()
         self.navBar.backgroundColor = UIColor.renardDarkBlue()
-        
     }
     
     func loadAsset(){
@@ -158,5 +160,14 @@ class ImagePreviewVC: UIViewController{
                 }
             }
         })
+    }
+    
+    @IBAction func saveMetadata(_ sender: UIButton){
+        let alert = UIAlertController(title: "Renard", message: NSLocalizedString("saveMetadataAlert", comment: ""), preferredStyle: .alert)
+        alert.addTextField()
+        alert.textFields?.first?.placeholder = NSLocalizedString("cameraName", comment: "")
+        alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
+        self.present(alert, animated: true)
     }
 }

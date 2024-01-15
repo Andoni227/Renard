@@ -58,3 +58,7 @@ LessCommonFormat = "Less common format";
 TotalPhotos = "Total photos";
 PhotosFormatPrefix = "";
 PhotosFormatPostFix = " Photos";
+saveMetadataBtn = "Save metadata";
+savedMetadata = "Saved metadata";
+saveMetadataAlert = "Choose a name for this camera, the model and brand metadata will be saved, which you can later use to apply to other images";
+cameraName = "Camera name";
