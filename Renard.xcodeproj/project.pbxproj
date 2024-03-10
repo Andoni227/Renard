@@ -30,12 +30,14 @@
 		F08244A22A368197007379BA /* LoadingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244A12A368197007379BA /* LoadingAlert.swift */; };
 		F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AA2A369D9C007379BA /* ImageObjects.swift */; };
 		F08244AF2A377684007379BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AE2A377684007379BA /* Extensions.swift */; };
+		F08852E42B60349D00AD33DE /* Camera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F08852E22B60349D00AD33DE /* Camera.xcdatamodeld */; };
 		F09D9ED72A3670AB00884A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D9ED62A3670AB00884A73 /* AppDelegate.swift */; };
 		F09D9ED92A3670AB00884A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D9ED82A3670AB00884A73 /* SceneDelegate.swift */; };
 		F09D9EDB2A3670AB00884A73 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D9EDA2A3670AB00884A73 /* ImagePreviewVC.swift */; };
 		F09D9EDE2A3670AB00884A73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09D9EDC2A3670AB00884A73 /* Main.storyboard */; };
 		F09D9EE02A3670AC00884A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09D9EDF2A3670AC00884A73 /* Assets.xcassets */; };
 		F09D9EE32A3670AC00884A73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09D9EE12A3670AC00884A73 /* LaunchScreen.storyboard */; };
+		F0B49A5B2B7E91FF00A062BF /* OpenFinderUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B49A5A2B7E91FF00A062BF /* OpenFinderUtility.swift */; };
 		F0DAD1282A75CCEC00EA67AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0DAD12A2A75CCEC00EA67AE /* Localizable.strings */; };
 		F0E8DCE52A3D2F9C00E7CCE1 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E8DCDA2A3D2F9600E7CCE1 /* Montserrat-Light.ttf */; };
 		F0E8DCE62A3D2F9C00E7CCE1 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E8DCD82A3D2F9600E7CCE1 /* Montserrat-Medium.ttf */; };
@@ -78,6 +80,7 @@
 		F08244A82A368D64007379BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F08244AA2A369D9C007379BA /* ImageObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObjects.swift; sourceTree = "<group>"; };
 		F08244AE2A377684007379BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F08852E32B60349D00AD33DE /* SavedCameras.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedCameras.xcdatamodel; sourceTree = "<group>"; };
 		F09D9ED32A3670AB00884A73 /* Renard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09D9ED62A3670AB00884A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09D9ED82A3670AB00884A73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		F09D9EDF2A3670AC00884A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F09D9EE22A3670AC00884A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F09D9EE42A3670AC00884A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0B49A5A2B7E91FF00A062BF /* OpenFinderUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFinderUtility.swift; sourceTree = "<group>"; };
 		F0DAD1292A75CCEC00EA67AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F0DAD12B2A75CCEF00EA67AE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F0DAD12C2A75DF8100EA67AE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 		F082449E2A368071007379BA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F0B49A5A2B7E91FF00A062BF /* OpenFinderUtility.swift */,
 				F082449F2A3680C5007379BA /* UiViewControllerExtensions.swift */,
 				F08244A12A368197007379BA /* LoadingAlert.swift */,
 				F08244AE2A377684007379BA /* Extensions.swift */,
@@ -200,6 +205,14 @@
 				F03A3AFA2A3E7718007CDBB6 /* OtherStructs.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F08852E12B60347A00AD33DE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F08852E22B60349D00AD33DE /* Camera.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		F09D9ECA2A3670AB00884A73 = {
@@ -222,6 +235,7 @@
 		F09D9ED52A3670AB00884A73 /* Renard */ = {
 			isa = PBXGroup;
 			children = (
+				F08852E12B60347A00AD33DE /* CoreData */,
 				F08244A92A369D89007379BA /* Entity */,
 				F082449E2A368071007379BA /* Utils */,
 				F09D9ED62A3670AB00884A73 /* AppDelegate.swift */,
@@ -346,6 +360,7 @@
 				F04E037A2A38C40F0042E8A9 /* AppDataCleaner.swift in Sources */,
 				F008C2C42A37A6F900DAB89B /* MediaExtensions.swift in Sources */,
 				F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */,
+				F08852E42B60349D00AD33DE /* Camera.xcdatamodeld in Sources */,
 				F0EE602F2A48DE2400AB5AAC /* CacheDataSingleton.swift in Sources */,
 				F08244A02A3680C5007379BA /* UiViewControllerExtensions.swift in Sources */,
 				F03A3AF92A3E701B007CDBB6 /* AboutAppVC.swift in Sources */,
@@ -353,6 +368,7 @@
 				F04E038F2A3906690042E8A9 /* PhotoCollectionViewCell.swift in Sources */,
 				F04E03852A38E7C80042E8A9 /* TitleCollectionViewCell.swift in Sources */,
 				F08244AF2A377684007379BA /* Extensions.swift in Sources */,
+				F0B49A5B2B7E91FF00A062BF /* OpenFinderUtility.swift in Sources */,
 				F03A3AFB2A3E7718007CDBB6 /* OtherStructs.swift in Sources */,
 				F09D9ED72A3670AB00884A73 /* AppDelegate.swift in Sources */,
 				F006F4B02A461FF300DAA1EB /* StatisticsVC.swift in Sources */,
@@ -632,6 +648,19 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F08852E22B60349D00AD33DE /* Camera.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F08852E32B60349D00AD33DE /* SavedCameras.xcdatamodel */,
+			);
+			currentVersion = F08852E32B60349D00AD33DE /* SavedCameras.xcdatamodel */;
+			path = Camera.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F09D9ECB2A3670AB00884A73 /* Project object */;
 }

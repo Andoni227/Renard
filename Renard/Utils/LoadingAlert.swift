@@ -85,51 +85,56 @@ extension UIViewController{
     }
     
     func showAlertWithLottie(lottie: lottieLibrary, labelText: String, buttonText: String? = nil ,handler: ((UIAlertAction) -> Void)? = nil) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-            
-            var animationView: LottieAnimationView!
-            animationView = .init(name: lottie.rawValue)
-            animationView?.frame = CGRect(x: 0, y: 0, width: 250.0, height: 150.0)
-            animationView?.contentMode = .scaleAspectFit
-            animationView?.animationSpeed = 0.5
-            animationView?.play(fromFrame: 0, toFrame: 85, loopMode: .none)
-            
-            // Crear el UILabel
-            let label = UILabel()
-            label.text = labelText
-            label.textAlignment = .center
-            label.numberOfLines = 0
-            
-            // Añadir la imagen y el label a la alerta
-            alert.view.addSubview(animationView)
-            alert.view.addSubview(label)
-            
-            // Configurar las restricciones
-            animationView.translatesAutoresizingMaskIntoConstraints = false
-            label.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                animationView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 20),
-                animationView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
-                animationView.heightAnchor.constraint(equalToConstant: 200),
-                
-                label.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 20),
-                label.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 20),
-                label.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor, constant: -20),
-                label.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -60)
-            ])
-            
-            // Crear el botón de cerrar
+        if #available(macOS 10.0, *) {
+            let alert = UIAlertController(title: "Renard", message: labelText, preferredStyle: .alert)
             let closeButton = UIAlertAction(title: buttonText ?? NSLocalizedString("accept", comment: ""), style: .default, handler: handler)
             alert.addAction(closeButton)
-            
-            // Presentar la alerta
             self.present(alert, animated: true, completion: nil)
+        } else {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+                
+                var animationView: LottieAnimationView!
+                animationView = .init(name: lottie.rawValue)
+                animationView?.frame = CGRect(x: 0, y: 0, width: 250.0, height: 150.0)
+                animationView?.contentMode = .scaleAspectFit
+                animationView?.animationSpeed = 0.5
+                animationView?.play(fromFrame: 0, toFrame: 85, loopMode: .none)
+                
+                // Crear el UILabel
+                let label = UILabel()
+                label.text = labelText
+                label.textAlignment = .center
+                label.numberOfLines = 0
+                
+                // Añadir la imagen y el label a la alerta
+                alert.view.addSubview(animationView)
+                alert.view.addSubview(label)
+                
+                // Configurar las restricciones
+                animationView.translatesAutoresizingMaskIntoConstraints = false
+                label.translatesAutoresizingMaskIntoConstraints = false
+                
+                NSLayoutConstraint.activate([
+                    animationView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 20),
+                    animationView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+                    animationView.heightAnchor.constraint(equalToConstant: 200),
+                    
+                    label.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 20),
+                    label.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 20),
+                    label.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor, constant: -20),
+                    label.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -60)
+                ])
+                
+                // Crear el botón de cerrar
+                let closeButton = UIAlertAction(title: buttonText ?? NSLocalizedString("accept", comment: ""), style: .default, handler: handler)
+                alert.addAction(closeButton)
+                
+                // Presentar la alerta
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
-    
-    
 }
 
 enum lottieLibrary: String{

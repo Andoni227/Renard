@@ -315,6 +315,14 @@ class MainDashboardVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func importFromFiles(_ sender: UIBarButtonItem){
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.image])
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = true
+        present(documentPicker, animated: true, completion: nil)
+    }
+    
 }
 
 extension MainDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -360,7 +368,9 @@ extension MainDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource,
             let cell = collectionView.cellForItem(at: indexPath) as! TitleCollectionViewCell
             if let selectedType = cell.accessibilityElements?.first as? ImageType{
                 if currentType == selectedType{
-                    self.photoLibraryCollectionView.scrollToItem(at: [0,0], at: .top, animated: true)
+                    if photos.count > 0{
+                        self.photoLibraryCollectionView.scrollToItem(at: [0,0], at: .top, animated: true)
+                    }
                 }else{
                     currentType = selectedType
                     cacheImages = photos.filter({ $0.format == selectedType })
@@ -396,5 +406,19 @@ extension MainDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource,
                 }
             }
         }
+    }
+}
+
+extension MainDashboardVC: UIDocumentPickerDelegate{
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+          for url in urls {
+              url.toImageObject(completion: { object in 
+                  print("SI SE PUDO")
+              })
+          }
+      }
+      
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("Selección de documentos cancelada")
     }
 }

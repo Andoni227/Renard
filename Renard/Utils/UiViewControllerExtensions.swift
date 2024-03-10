@@ -97,7 +97,13 @@ extension UIViewController{
                 ciImage = addCustomDateTimeToCIImage(ciImage: ciImage, dateTime: dateTime)
             }
             
-            if let data = ctx.heifRepresentation(of: ciImage, format: .RGBA8, colorSpace: ctx.workingColorSpace!, options: [:]){
+            var format: CIFormat = .RGBA8
+            
+            if #available(iOS 17.0, *){
+                format = .RGB10
+            }
+            
+            if let data = ctx.heifRepresentation(of: ciImage, format: format, colorSpace: ciImage.colorSpace ?? ctx.workingColorSpace!, options: [:]){
                 
                 PHPhotoLibrary.shared().performChanges {
                     let creationRequest = PHAssetCreationRequest.forAsset()

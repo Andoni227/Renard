@@ -16,6 +16,22 @@ extension String{
         let dateIn = dateFormatterIn.date(from: self)
         return dateIn ?? Date()
     }
+    
+    func toDictionary() -> [String: Any]? {
+            guard let data = self.data(using: .utf8) else {
+                return nil
+            }
+
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                guard let dictionary = jsonObject as? [String: Any] else {
+                    return nil
+                }
+                return dictionary
+            } catch {
+                return nil
+            }
+        }
 }
 
 extension Int64{
@@ -78,3 +94,27 @@ extension UIColor{
        return UIColor(red: 91/255, green: 123/255, blue: 173/255, alpha: 1.0)
     }
 }
+
+extension Dictionary where Key == String, Value: Any {
+    func jsonString() -> String? {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            return jsonString
+        } catch {
+            print("Error al convertir el diccionario a cadena: \(error)")
+            return nil
+        }
+    }
+    
+    func removingKeys(_ keys: [String]) -> [String: Any]? {
+        var result = self
+        
+        for key in keys {
+            result.removeValue(forKey: key)
+        }
+        
+        return result.isEmpty ? nil : result
+    }
+}
+

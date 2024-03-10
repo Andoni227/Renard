@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbq-CR-bet">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbq-CR-bet">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -35,10 +35,25 @@
                     <view key="view" contentMode="scaleToFill" id="MYf-pM-SHV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SzZ-LV-0rJ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="mgm-ln-6rG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mgm-ln-6rG" firstAttribute="trailing" secondItem="SzZ-LV-0rJ" secondAttribute="trailing" id="Saa-Z7-Yta"/>
+                            <constraint firstItem="SzZ-LV-0rJ" firstAttribute="leading" secondItem="mgm-ln-6rG" secondAttribute="leading" id="Sjo-ao-xqs"/>
+                            <constraint firstAttribute="bottom" secondItem="SzZ-LV-0rJ" secondAttribute="bottom" id="TCC-id-exJ"/>
+                            <constraint firstItem="SzZ-LV-0rJ" firstAttribute="top" secondItem="mgm-ln-6rG" secondAttribute="top" id="y7a-MQ-Vtc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UIj-YR-wWN"/>
+                    <connections>
+                        <outlet property="table" destination="SzZ-LV-0rJ" id="Q7u-z5-FA9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NyG-Iz-79e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +87,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ZiU-bd-C5M"/>
-                                    <barButtonItem title="Save metadata" id="DoF-iC-n7p">
+                                    <barButtonItem title="Save metadata" hidden="YES" id="DoF-iC-n7p">
                                         <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="saveMetadata:" destination="BYZ-38-t0r" id="JqT-6e-g8k"/>
@@ -299,10 +314,10 @@
                                     <segue destination="6Qb-LS-3Iq" kind="show" id="OdC-K1-4F5"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="camera.on.rectangle.fill" catalog="system" id="nrZ-oW-vDP">
+                            <barButtonItem image="camera.on.rectangle.fill" catalog="system" hidden="YES" id="nrZ-oW-vDP">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="deY-TH-02Z" kind="show" id="5xe-5i-EtZ"/>
+                                    <segue destination="deY-TH-02Z" kind="show" id="XWC-G7-drz"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -442,11 +457,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.on.rectangle.fill" catalog="system" width="128" height="98"/>
+        <image name="camera.on.rectangle.fill" catalog="system" width="128" height="103"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

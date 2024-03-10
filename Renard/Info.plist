@@ -33,6 +33,13 @@
 			</array>
 		</dict>
 	</dict>
+    <key>NSPersistentContainer</key>
+    <dict>
+        <key>name</key>
+        <string>Camera</string>
+    </dict>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Tu explicación aquí</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>

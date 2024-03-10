@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 import Photos
+import CoreData
 
 class ImagePreviewVC: UIViewController{
     
@@ -24,6 +25,7 @@ class ImagePreviewVC: UIViewController{
     
     var receivedAsset: PHAsset?
     var selectedObject: ImageObject?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +105,13 @@ class ImagePreviewVC: UIViewController{
                 ciImage = addCustomDateTimeToCIImage(ciImage: ciImage, dateTime: dateTime)
             }
             
-            let data = ctx.heifRepresentation(of: ciImage, format: .RGBA8, colorSpace: ctx.workingColorSpace!, options: [:])
+            var format: CIFormat = .RGBA8
+            
+            if #available(iOS 17.0, *){
+                format = .RGB10
+            }
+            
+            let data = ctx.heifRepresentation(of: ciImage, format: format, colorSpace: ciImage.colorSpace ?? ctx.workingColorSpace!, options: [:])
             
             let activityViewController = UIActivityViewController(activityItems: [data!], applicationActivities: nil)
             self.hideLoading {
@@ -129,7 +137,13 @@ class ImagePreviewVC: UIViewController{
                     ciImage = addCustomDateTimeToCIImage(ciImage: ciImage, dateTime: dateTime)
                 }
                 
-                if let data = ctx.heifRepresentation(of: ciImage, format: .RGBA8, colorSpace: ctx.workingColorSpace!, options: [:]){
+                var format: CIFormat = .RGBA8
+                
+                if #available(iOS 17.0, *){
+                    format = .RGB10
+                }
+                
+                if let data = ctx.heifRepresentation(of: ciImage, format: format, colorSpace: ciImage.colorSpace ?? ctx.workingColorSpace!, options: [:]){
                     
                     PHPhotoLibrary.shared().performChanges {
                         let creationRequest = PHAssetCreationRequest.forAsset()
@@ -166,7 +180,22 @@ class ImagePreviewVC: UIViewController{
         let alert = UIAlertController(title: "Renard", message: NSLocalizedString("saveMetadataAlert", comment: ""), preferredStyle: .alert)
         alert.addTextField()
         alert.textFields?.first?.placeholder = NSLocalizedString("cameraName", comment: "")
-        alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default, handler: { [self]_ in
+            if let newCamera = NSEntityDescription.insertNewObject(forEntityName: "Camera", into: context) as? Camera {
+               
+                newCamera.name = alert.textFields?.first?.text
+                newCamera.metadata = selectedObject?.metadata?.jsonString()
+
+                do {
+                    try context.save()
+                    
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Error al guardar datos: \(nserror), \(nserror.userInfo)")
+                }
+            }
+            
+        }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
         self.present(alert, animated: true)
     }
