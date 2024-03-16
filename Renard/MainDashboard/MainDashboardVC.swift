@@ -272,6 +272,17 @@ class MainDashboardVC: UIViewController {
         }
     }
     
+    func startConvertion(){
+        let selectedObjects = cacheImages.filter({ $0.isSelected == true })
+        if  selectedObjects.count > 0{
+            print("_: MÁS DE UN ELEMENTO SELECCIONADO, INICIANDO EXPORTACIÓN")
+            showLoading()
+            imagesToExport = selectedObjects
+            imagesToExportMirror = selectedObjects
+            fetchCompressions()
+        }
+    }
+    
     @objc func updateLibrary(){
         photos.removeAll()
         dataTypes.removeAll()
@@ -281,13 +292,15 @@ class MainDashboardVC: UIViewController {
     
     @IBAction func saveSelectedImages(_ sender: UIButton){
         print("_: CLICK BOTÓN DE GUARDAR")
-        let selectedObjects = cacheImages.filter({ $0.isSelected == true })
-        if  selectedObjects.count > 0{
-            print("_: MÁS DE UN ELEMENTO SELECCIONADO, INICIANDO EXPORTACIÓN")
-            showLoading()
-            imagesToExport = selectedObjects
-            imagesToExportMirror = selectedObjects
-            fetchCompressions()
+        if currentType == .AVIF{
+            let alert = UIAlertController(title: "Renard", message: NSLocalizedString("saveAVIFAlert", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default, handler: { [self]_ in
+                startConvertion()
+            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
+            self.present(alert, animated: true)
+        }else{
+            startConvertion()
         }
     }
     
