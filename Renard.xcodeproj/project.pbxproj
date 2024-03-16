@@ -30,6 +30,7 @@
 		F08244A22A368197007379BA /* LoadingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244A12A368197007379BA /* LoadingAlert.swift */; };
 		F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AA2A369D9C007379BA /* ImageObjects.swift */; };
 		F08244AF2A377684007379BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AE2A377684007379BA /* Extensions.swift */; };
+		F082C6C82BA642BE0081C5C8 /* CIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */; };
 		F08852E42B60349D00AD33DE /* Camera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F08852E22B60349D00AD33DE /* Camera.xcdatamodeld */; };
 		F09D9ED72A3670AB00884A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D9ED62A3670AB00884A73 /* AppDelegate.swift */; };
 		F09D9ED92A3670AB00884A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D9ED82A3670AB00884A73 /* SceneDelegate.swift */; };
@@ -80,6 +81,7 @@
 		F08244A82A368D64007379BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F08244AA2A369D9C007379BA /* ImageObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObjects.swift; sourceTree = "<group>"; };
 		F08244AE2A377684007379BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIImageExtensions.swift; sourceTree = "<group>"; };
 		F08852E32B60349D00AD33DE /* SavedCameras.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedCameras.xcdatamodel; sourceTree = "<group>"; };
 		F09D9ED32A3670AB00884A73 /* Renard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09D9ED62A3670AB00884A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				F082449F2A3680C5007379BA /* UiViewControllerExtensions.swift */,
 				F08244A12A368197007379BA /* LoadingAlert.swift */,
 				F08244AE2A377684007379BA /* Extensions.swift */,
+				F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */,
 				F008C2C32A37A6F900DAB89B /* MediaExtensions.swift */,
 				F04E03792A38C40F0042E8A9 /* AppDataCleaner.swift */,
 				F0DAD12A2A75CCEC00EA67AE /* Localizable.strings */,
@@ -359,6 +362,7 @@
 				F061C3142A4BB04200FDBAB2 /* StatisticsTableViewCell.swift in Sources */,
 				F04E037A2A38C40F0042E8A9 /* AppDataCleaner.swift in Sources */,
 				F008C2C42A37A6F900DAB89B /* MediaExtensions.swift in Sources */,
+				F082C6C82BA642BE0081C5C8 /* CIImageExtensions.swift in Sources */,
 				F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */,
 				F08852E42B60349D00AD33DE /* Camera.xcdatamodeld in Sources */,
 				F0EE602F2A48DE2400AB5AAC /* CacheDataSingleton.swift in Sources */,
@@ -565,7 +569,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -598,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

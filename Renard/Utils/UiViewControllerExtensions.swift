@@ -84,9 +84,7 @@ extension UIViewController{
         })
     }
     
-    func exportImage(asset: ImageObject,_ changeBlock: @escaping (Bool) -> Void){
-        print("_: LLAMADO A FUNCIÓN DE EXPORT")
-        let ctx = CIContext()
+    func exportImage(asset: ImageObject,_ changeBlock: @escaping (Bool, Error?) -> Void){
         if var ciImage = CIImage(image: asset.image){
             
             if let photoMetaData = asset.metadata{
@@ -97,24 +95,29 @@ extension UIViewController{
                 ciImage = addCustomDateTimeToCIImage(ciImage: ciImage, dateTime: dateTime)
             }
             
-            var format: CIFormat = .RGBA8
-            
-            if #available(iOS 17.0, *){
-                format = .RGB10
-            }
-            
-            if let data = ctx.heifRepresentation(of: ciImage, format: format, colorSpace: ciImage.colorSpace ?? ctx.workingColorSpace!, options: [:]){
-                
-                PHPhotoLibrary.shared().performChanges {
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, data: data, options: nil)
-                    creationRequest.creationDate = asset.dateData ?? asset.dateTime?.stringToDate(format: "yyyy-MM-dd HH:mm:ss")
-                    
-                } completionHandler: { success, error in
-                    changeBlock(success)
+            ciImage.toHEIFData(HEIFData: { data in
+                if let HEIFImage = data{
+                    PHPhotoLibrary.shared().performChanges {
+                        let creationRequest = PHAssetCreationRequest.forAsset()
+                        creationRequest.addResource(with: .photo, data: HEIFImage, options: nil)
+                        creationRequest.creationDate = asset.dateData ?? asset.dateTime?.stringToDate(format: "yyyy-MM-dd HH:mm:ss")
+                        
+                    } completionHandler: { success, error in
+                        changeBlock(success, error)
+                    }
+                }else{
+                    changeBlock(false, nil)
                 }
-            }
+            })
         }
+    }
+    
+    func isRunningOnMac() -> Bool {
+      #if os(macOS)
+        return true
+      #else
+        return false
+      #endif
     }
 }
 

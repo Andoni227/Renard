@@ -215,7 +215,7 @@ class MainDashboardVC: UIViewController {
                             print("_: CONVERTIR IMAGEN A OBJETO...")
                             image.asset.toImageObject(completion: { [self] object in
                                 print("_: INICIAR LLAMADO A FUNCIÓN DE EXPORT")
-                                exportImage(asset: object, { success in
+                                exportImage(asset: object, { success, error in
                                     if success == false{
                                         self.hideLoading(completion: {
                                             self.imagesToExport.removeAll()

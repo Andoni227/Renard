@@ -87,12 +87,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ZiU-bd-C5M"/>
-                                    <barButtonItem title="Save metadata" hidden="YES" id="DoF-iC-n7p">
-                                        <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="saveMetadata:" destination="BYZ-38-t0r" id="JqT-6e-g8k"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WYv-hm-Pr6"/>
                                     <barButtonItem systemItem="save" id="NFl-mm-lsc">
                                         <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,7 +185,6 @@
                     <connections>
                         <outlet property="btnClose" destination="nhD-uo-PwX" id="CSV-FS-xAQ"/>
                         <outlet property="btnSave" destination="NFl-mm-lsc" id="H95-38-gzt"/>
-                        <outlet property="btnSaveMetadata" destination="DoF-iC-n7p" id="A1R-PL-AyC"/>
                         <outlet property="btnShare" destination="7Fe-ma-Sx7" id="k6P-Rs-HBz"/>
                         <outlet property="imgView" destination="PLw-NL-JRk" id="AE5-7A-PXZ"/>
                         <outlet property="lblIndicator" destination="1Nu-bu-Tae" id="93k-3c-OLp"/>
@@ -307,20 +300,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Renard" largeTitleDisplayMode="never" id="LaG-2w-Dyy">
-                        <leftBarButtonItems>
-                            <barButtonItem image="info.circle.fill" catalog="system" id="sSN-1Z-iC3">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="6Qb-LS-3Iq" kind="show" id="OdC-K1-4F5"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="camera.on.rectangle.fill" catalog="system" hidden="YES" id="nrZ-oW-vDP">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="deY-TH-02Z" kind="show" id="XWC-G7-drz"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" image="info.circle.fill" catalog="system" id="sSN-1Z-iC3">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="6Qb-LS-3Iq" kind="show" id="OdC-K1-4F5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Seleccionar" id="AU2-TF-Zsn">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -457,7 +442,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.on.rectangle.fill" catalog="system" width="128" height="103"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>

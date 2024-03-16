@@ -61,3 +61,5 @@ saveMetadataBtn = "Guardar metadatos";
 savedMetadata = "Metadatos guardados";
 saveMetadataAlert = "Elige un nombre para esta cámara, se guardaran los metadatos del modelo y marca de la cámara, los cuales podrás usar después para aplicarlos a otras imagenes";
 cameraName = "Nombre de la cámara"; 
+
+saveAVIFAlert = "Esta imagen está en formato AVIF el cual es más eficiente que HEIF, la conversión podría resultar en una imagen más pesada pero a su vez más compatible, ¿deseas continuar?";

@@ -9,6 +9,7 @@ import Photos
 import UIKit
 
 extension PHAsset {
+    //Obtiene el tipo de imagen de un PHAsset
     func getType() -> ImageType{
         guard self.mediaType == .image else {
             print("El PHAsset no es un archivo de imagen")
@@ -27,6 +28,7 @@ extension PHAsset {
         }
     }
     
+    //Convierte un PHAsset a un ImageObject
     func toImageObject(completion: @escaping (ImageObject) -> Void){
         var object: ImageObject = ImageObject.init(image: UIImage())
         
@@ -59,6 +61,7 @@ extension PHAsset {
         })
     }
     
+    //Verifica que el PHAsset esté descargado
     func isLocalItem(completion: @escaping(Bool) -> Void){
         let requestOptions = PHImageRequestOptions()
         requestOptions.isNetworkAccessAllowed = true
@@ -72,6 +75,7 @@ extension PHAsset {
         }
     }
     
+    //Convierte un PHAsset a una UIImage
     func toUIImage(completion: @escaping (UIImage?) -> Void) {
         let imageManager = PHImageManager.default()
         let requestOptions = PHImageRequestOptions()
@@ -84,6 +88,7 @@ extension PHAsset {
         }
     }
     
+    //Obtiene la resolución de la imagen
     func getResolution() -> Int{
         let width = Double(self.pixelWidth)
         let height = Double(self.pixelHeight)
@@ -93,6 +98,7 @@ extension PHAsset {
         return resolution
     }
     
+    //Obtiene el tamaño de la imagen
     func getSize(format: sizeFormat? = .humanReadable) -> String{
         let resources = PHAssetResource.assetResources(for: self) // your PHAsset
         

@@ -62,3 +62,5 @@ saveMetadataBtn = "Save metadata";
 savedMetadata = "Saved metadata";
 saveMetadataAlert = "Choose a name for this camera, the model and brand metadata will be saved, which you can later use to apply to other images";
 cameraName = "Camera name";
+
+saveAVIFAlert = "This image is in AVIF format, which is more efficient than HEIF. The conversion could result in a heavier image but at the same time more compatible. Do you want to continue?";

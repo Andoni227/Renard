@@ -34,6 +34,10 @@ struct FormatObject: Comparable{
 enum ImageType: String{
     
     case RAW = "com.adobe.raw-image"
+    case RAF = "com.fuji.raw-image"
+    case ARW = "com.sony.arw-raw-image"
+    case NEF = "com.nikon.raw-image"
+    case CR3 = "com.canon.cr3-raw-image"
     case GIF = "com.compuserve.gif"
     case JPG = "public.jpeg"
     case HEIC = "public.heic"
@@ -42,11 +46,20 @@ enum ImageType: String{
     case WEBP = "org.webmproject.webp"
     case UNOWNED = ""
     case NOTIMAGE = "video"
+    case AVIF = "public.avif"
     
     var getName: String {
             switch self {
             case .RAW:
                 return "RAW"
+            case .RAF:
+                return "RAF"
+            case .ARW:
+                return "ARW"
+            case .NEF:
+                 return "NEF"
+            case .CR3:
+                return "CR3"
             case .GIF:
                 return "GIF"
             case .JPG:
@@ -59,8 +72,10 @@ enum ImageType: String{
                 return "TIFF"
             case .WEBP:
                 return "WEBP"
+            case .AVIF:
+                return "AVIF"
             case .UNOWNED:
-                return "??? 🤨"
+                return "RAW"
             case .NOTIMAGE:
                 return "Desconocido"
             }
