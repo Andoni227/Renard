@@ -31,6 +31,9 @@
 		F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AA2A369D9C007379BA /* ImageObjects.swift */; };
 		F08244AF2A377684007379BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AE2A377684007379BA /* Extensions.swift */; };
 		F082C6C82BA642BE0081C5C8 /* CIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */; };
+		F082C6CA2BA656A60081C5C8 /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082C6C92BA656A60081C5C8 /* PreferencesVC.swift */; };
+		F082C6CE2BA6AAD70081C5C8 /* PreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082C6CC2BA6AAD70081C5C8 /* PreferencesCell.swift */; };
+		F082C6CF2BA6AAD70081C5C8 /* PreferencesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F082C6CD2BA6AAD70081C5C8 /* PreferencesCell.xib */; };
 		F08852E42B60349D00AD33DE /* Camera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F08852E22B60349D00AD33DE /* Camera.xcdatamodeld */; };
 		F09D9ED72A3670AB00884A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D9ED62A3670AB00884A73 /* AppDelegate.swift */; };
 		F09D9ED92A3670AB00884A73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D9ED82A3670AB00884A73 /* SceneDelegate.swift */; };
@@ -82,6 +85,9 @@
 		F08244AA2A369D9C007379BA /* ImageObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObjects.swift; sourceTree = "<group>"; };
 		F08244AE2A377684007379BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIImageExtensions.swift; sourceTree = "<group>"; };
+		F082C6C92BA656A60081C5C8 /* PreferencesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
+		F082C6CC2BA6AAD70081C5C8 /* PreferencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCell.swift; sourceTree = "<group>"; };
+		F082C6CD2BA6AAD70081C5C8 /* PreferencesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesCell.xib; sourceTree = "<group>"; };
 		F08852E32B60349D00AD33DE /* SavedCameras.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedCameras.xcdatamodel; sourceTree = "<group>"; };
 		F09D9ED32A3670AB00884A73 /* Renard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09D9ED62A3670AB00884A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 				F006F4AF2A461FF300DAA1EB /* StatisticsVC.swift */,
 				F006F4B12A46200200DAA1EB /* SwiftUITV.swift */,
 				F045717B2B3A604C00EFE672 /* SavedCamerasList.swift */,
+				F082C6C92BA656A60081C5C8 /* PreferencesVC.swift */,
 			);
 			path = MainDashboard;
 			sourceTree = "<group>";
@@ -134,6 +141,7 @@
 		F04E03822A38E0B40042E8A9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F082C6CB2BA6AABC0081C5C8 /* PreferencesCell */,
 				F061C3112A4BB02E00FDBAB2 /* StatisticsCell */,
 				F04E03882A39063E0042E8A9 /* PhotoCell */,
 				F04E03872A39062F0042E8A9 /* TitleCell */,
@@ -208,6 +216,15 @@
 				F03A3AFA2A3E7718007CDBB6 /* OtherStructs.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F082C6CB2BA6AABC0081C5C8 /* PreferencesCell */ = {
+			isa = PBXGroup;
+			children = (
+				F082C6CC2BA6AAD70081C5C8 /* PreferencesCell.swift */,
+				F082C6CD2BA6AAD70081C5C8 /* PreferencesCell.xib */,
+			);
+			path = PreferencesCell;
 			sourceTree = "<group>";
 		};
 		F08852E12B60347A00AD33DE /* CoreData */ = {
@@ -340,6 +357,7 @@
 				F0DAD1282A75CCEC00EA67AE /* Localizable.strings in Resources */,
 				F0E8DCE62A3D2F9C00E7CCE1 /* Montserrat-Medium.ttf in Resources */,
 				F0E8DCE52A3D2F9C00E7CCE1 /* Montserrat-Light.ttf in Resources */,
+				F082C6CF2BA6AAD70081C5C8 /* PreferencesCell.xib in Resources */,
 				F04E03782A38BD6E0042E8A9 /* fox_load.json in Resources */,
 				F0E8DCEB2A3D2F9C00E7CCE1 /* Montserrat-Regular.ttf in Resources */,
 				F09D9EDE2A3670AB00884A73 /* Main.storyboard in Resources */,
@@ -362,6 +380,7 @@
 				F061C3142A4BB04200FDBAB2 /* StatisticsTableViewCell.swift in Sources */,
 				F04E037A2A38C40F0042E8A9 /* AppDataCleaner.swift in Sources */,
 				F008C2C42A37A6F900DAB89B /* MediaExtensions.swift in Sources */,
+				F082C6CA2BA656A60081C5C8 /* PreferencesVC.swift in Sources */,
 				F082C6C82BA642BE0081C5C8 /* CIImageExtensions.swift in Sources */,
 				F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */,
 				F08852E42B60349D00AD33DE /* Camera.xcdatamodeld in Sources */,
@@ -376,6 +395,7 @@
 				F03A3AFB2A3E7718007CDBB6 /* OtherStructs.swift in Sources */,
 				F09D9ED72A3670AB00884A73 /* AppDelegate.swift in Sources */,
 				F006F4B02A461FF300DAA1EB /* StatisticsVC.swift in Sources */,
+				F082C6CE2BA6AAD70081C5C8 /* PreferencesCell.swift in Sources */,
 				F09D9ED92A3670AB00884A73 /* SceneDelegate.swift in Sources */,
 				F04E03802A38CF040042E8A9 /* MainDashboardVC.swift in Sources */,
 				F045717C2B3A604C00EFE672 /* SavedCamerasList.swift in Sources */,

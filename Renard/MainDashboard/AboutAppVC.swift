@@ -25,9 +25,7 @@ class AboutAppVC: UIViewController {
         self.view.backgroundColor = UIColor.renardBackgroundHeavy()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,  NSAttributedString.Key.font: UIFont.montserratMedium(ofSize: 16.0)]
         
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            self.title = "Renard V \(version)"
-        }
+        self.title = "Renard"
         
         table.alwaysBounceVertical = false
         table.backgroundColor = UIColor.renardBoldBlue()
@@ -54,6 +52,9 @@ class AboutAppVC: UIViewController {
         options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen7Subtitle", comment: ""), "Cảnh Ngô - LottieFiles ↗️","Solitudinem - LottieFiles ↗️"], tag: 5))
         options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen8Subtitle", comment: "")], tag: 5))
         options.append(aboutUsObject.init(section: "", content: [NSLocalizedString("InfoScreen9Subtitle", comment: "")], tag: 5))
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            options.append(aboutUsObject.init(section: "", content: ["V \(version)"]))
+        }
     }
     
     @IBAction func openStatistics(){

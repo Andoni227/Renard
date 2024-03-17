@@ -63,3 +63,6 @@ saveMetadataAlert = "Elige un nombre para esta cámara, se guardaran los metadat
 cameraName = "Nombre de la cámara";
 
 saveAVIFAlert = "Esta imagen está en formato AVIF, que es más eficiente que HEIF. La conversión podría dar como resultado una imagen más grande, pero al mismo tiempo más compatible. ¿Quieres continuar?";
+preferences = "Ajustes";
+preferencesOption1 = "Eliminar imagenes originales de forma predeterminada";
+preferencesOption2 = "Nivel de compresión";

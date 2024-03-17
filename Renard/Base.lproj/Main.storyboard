@@ -351,13 +351,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Renard" id="FJU-iE-n2H">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Zoq-6l-YSl">
-                            <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="openStatistics" destination="bwE-Kf-c7L" id="NUa-Go-iH1"/>
-                                <segue destination="KI3-d3-8Y5" kind="show" id="9Zc-sP-U8i"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="Zoq-6l-YSl">
+                                <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="openStatistics" destination="bwE-Kf-c7L" id="NUa-Go-iH1"/>
+                                    <segue destination="KI3-d3-8Y5" kind="show" id="9Zc-sP-U8i"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="gearshape" catalog="system" id="lVz-pj-0eM">
+                                <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="cnq-Kr-0NM" kind="show" id="p0b-aT-3qD"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="configIcon" destination="Zoq-6l-YSl" id="UDP-Ad-Mga"/>
@@ -398,7 +406,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5li-5h-djQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208" y="765"/>
+            <point key="canvasLocation" x="2723" y="1156"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="nUJ-Ye-rnm">
+            <objects>
+                <viewController id="cnq-Kr-0NM" customClass="PreferencesViewController" customModule="Renard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YRp-5N-C3W">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xh1-Ic-Lfg">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fvp-yD-8if"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xh1-Ic-Lfg" secondAttribute="bottom" id="4Mg-CV-AQK"/>
+                            <constraint firstItem="xh1-Ic-Lfg" firstAttribute="top" secondItem="Fvp-yD-8if" secondAttribute="top" id="bSa-hH-mrz"/>
+                            <constraint firstItem="xh1-Ic-Lfg" firstAttribute="leading" secondItem="Fvp-yD-8if" secondAttribute="leading" id="oik-Il-zfI"/>
+                            <constraint firstItem="Fvp-yD-8if" firstAttribute="trailing" secondItem="xh1-Ic-Lfg" secondAttribute="trailing" id="qpi-97-Ydo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lsN-R8-DBx">
+                        <barButtonItem key="backBarButtonItem" title=" " id="XjE-sd-8hM"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="xh1-Ic-Lfg" id="xrX-0j-Ufc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvq-Tp-8kb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2723" y="450"/>
         </scene>
         <!--Acerca de -->
         <scene sceneID="gnP-G1-jbx">
@@ -442,6 +484,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
