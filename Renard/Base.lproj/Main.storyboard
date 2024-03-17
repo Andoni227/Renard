@@ -115,7 +115,7 @@
                                             <constraint firstAttribute="height" constant="31" id="3fK-7M-1d5"/>
                                             <constraint firstAttribute="width" constant="49" id="dLA-Ie-NhC"/>
                                         </constraints>
-                                        <color key="onTintColor" red="0.41712404783675489" green="0.50806708634353659" blue="0.72340593434343436" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="onTintColor" red="0.41568627450980389" green="0.50980392156862742" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </switch>
                                 </subviews>
                                 <constraints>

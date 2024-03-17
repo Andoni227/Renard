@@ -34,7 +34,8 @@ class PreferencesViewController: UIViewController{
     func changeCompressionAlert(){
         let alert = UIAlertController(title: "Renard", message: NSLocalizedString("preferencesOption2", comment: ""), preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: NSLocalizedString("preferencesOption2_1", comment: ""), style: .default, handler: {_ in
-            
+            UserDefaults.standard.setValue(false, forKey: "maximumCompression")
+            self.table.reloadData()
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("preferencesOption2_2", comment: ""), style: .default, handler: {_ in
             self.maxinumCompressionAlert()
@@ -46,7 +47,8 @@ class PreferencesViewController: UIViewController{
     func maxinumCompressionAlert(){
         let alert = UIAlertController(title: NSLocalizedString("attention", comment: ""), message: NSLocalizedString("preferencesOption2_3", comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default, handler: {_ in
-            
+            UserDefaults.standard.setValue(true, forKey: "maximumCompression")
+            self.table.reloadData()
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
         self.present(alert, animated: true)
@@ -79,7 +81,11 @@ extension PreferencesViewController: UITableViewDelegate, UITableViewDataSource{
             cell?.lblTitle.text = NSLocalizedString("preferencesOption1", comment: "")
         case 1:
             cell?.switchView.isHidden = true
-            cell?.lblTitle.text = "\(NSLocalizedString("preferencesOption2", comment: "")): Normal"
+            var compressionLevel = NSLocalizedString("preferencesOption2_1", comment: "")
+            if let savedCompressionLvl = UserDefaults.standard.value(forKey: "maximumCompression") as? Bool{
+                compressionLevel = savedCompressionLvl ? NSLocalizedString("preferencesOption2_2", comment: "") : NSLocalizedString("preferencesOption2_1", comment: "")
+            }
+            cell?.lblTitle.text = "\(NSLocalizedString("preferencesOption2", comment: "")): \(compressionLevel)"
         default:
             cell?.switchView.isHidden = false
         }

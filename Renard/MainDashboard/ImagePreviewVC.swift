@@ -44,6 +44,9 @@ class ImagePreviewVC: UIViewController{
         lblIndicator.font = UIFont.montserratMedium(ofSize: 15.0)
         lblTitle.font = UIFont.montserratMedium(ofSize: 15.0)
         lblTitle.textColor = .white
+        if let savedStatus = UserDefaults.standard.value(forKey: "deleteByDefault"){
+            swtch.isOn = savedStatus as? Bool ?? true
+        }
         self.swtchView.backgroundColor = UIColor.renardDarkBlue()
         self.view.backgroundColor = UIColor.renardBackgroundHeavy()
         self.navBar.backgroundColor = UIColor.renardDarkBlue()

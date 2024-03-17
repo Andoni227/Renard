@@ -16,7 +16,13 @@ extension CIImage{
             format = .RGB10
         }
         
-        if let data = ctx.heifRepresentation(of: self, format: format, colorSpace: self.colorSpace ?? ctx.workingColorSpace!, options: [:]){
+        var colorSpace = self.colorSpace ?? ctx.workingColorSpace!
+        
+        if UserDefaults.standard.bool(forKey: "maximumCompression"){
+            colorSpace = ctx.workingColorSpace!
+        }
+        
+        if let data = ctx.heifRepresentation(of: self, format: format, colorSpace: colorSpace, options: [:]){
             HEIFData(data)
         }else{
             HEIFData(nil)

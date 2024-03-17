@@ -48,6 +48,7 @@
                                             <constraint firstAttribute="height" constant="31" id="IDY-fb-mG9"/>
                                             <constraint firstAttribute="width" constant="47" id="v0Q-en-w89"/>
                                         </constraints>
+                                        <color key="onTintColor" red="0.41568627450000001" green="0.50980392159999999" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
