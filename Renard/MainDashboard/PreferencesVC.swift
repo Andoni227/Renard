@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class PreferencesViewController: UIViewController{
     
     @IBOutlet weak var table: UITableView!
-
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var savedSettings = [Preferences]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.renardBackgroundHeavy()
@@ -19,7 +22,16 @@ class PreferencesViewController: UIViewController{
         self.title = "\(NSLocalizedString("preferences", comment: ""))"
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barTintColor = UIColor.renardBackgroundHeavy()
+        loadSettings()
         setTable()
+    }
+    
+    func loadSettings(){
+        let request: NSFetchRequest<Preferences> = Preferences.fetchRequest()
+        
+        do{
+            savedSettings = try context.fetch(request)
+        }catch{ () }
     }
     
     func setTable(){
@@ -29,6 +41,26 @@ class PreferencesViewController: UIViewController{
         table.alwaysBounceVertical = false
     }
     
+    func changeCompressionAlert(){
+        let alert = UIAlertController(title: "Renard", message: NSLocalizedString("preferencesOption2", comment: ""), preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("preferencesOption2_1", comment: ""), style: .default, handler: {_ in
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("preferencesOption2_2", comment: ""), style: .default, handler: {_ in
+            self.maxinumCompressionAlert()
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
+        self.present(alert, animated: true)
+    }
+    
+    func maxinumCompressionAlert(){
+        let alert = UIAlertController(title: NSLocalizedString("attention", comment: ""), message: NSLocalizedString("preferencesOption2_3", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default, handler: {_ in
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
+        self.present(alert, animated: true)
+    }
 }
 
 extension PreferencesViewController: UITableViewDelegate, UITableViewDataSource{
@@ -49,11 +81,17 @@ extension PreferencesViewController: UITableViewDelegate, UITableViewDataSource{
             cell?.lblTitle.text = NSLocalizedString("preferencesOption1", comment: "")
         case 1:
             cell?.switchView.isHidden = true
-            cell?.lblTitle.text = NSLocalizedString("preferencesOption2", comment: "")
+            cell?.lblTitle.text = "\(NSLocalizedString("preferencesOption2", comment: "")): Normal"
         default:
             cell?.switchView.isHidden = false
         }
         
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1{
+            changeCompressionAlert()
+        }
     }
 }
