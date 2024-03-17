@@ -27,6 +27,9 @@ class MainDashboardVC: UIViewController {
             if enableSelection{
                 if cacheImages.filter({ $0.isSelected  == true }).count > 0{
                     btnExport.isHidden = false
+                    if let savedStatus = UserDefaults.standard.value(forKey: "deleteByDefault"){
+                        swtch.isOn = savedStatus as? Bool ?? true
+                    }
                     swtchView.isHidden = false
                     bottomView.isHidden = false
                     

@@ -12,7 +12,6 @@ class PreferencesViewController: UIViewController{
     
     @IBOutlet weak var table: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var savedSettings = [Preferences]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +21,7 @@ class PreferencesViewController: UIViewController{
         self.title = "\(NSLocalizedString("preferences", comment: ""))"
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barTintColor = UIColor.renardBackgroundHeavy()
-        loadSettings()
         setTable()
-    }
-    
-    func loadSettings(){
-        let request: NSFetchRequest<Preferences> = Preferences.fetchRequest()
-        
-        do{
-            savedSettings = try context.fetch(request)
-        }catch{ () }
     }
     
     func setTable(){
@@ -61,6 +51,10 @@ class PreferencesViewController: UIViewController{
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
         self.present(alert, animated: true)
     }
+    
+    @objc func switchChanged(_ sender: UISwitch){
+        UserDefaults.standard.setValue(sender.isOn, forKey: "deleteByDefault")
+    }
 }
 
 extension PreferencesViewController: UITableViewDelegate, UITableViewDataSource{
@@ -78,6 +72,10 @@ extension PreferencesViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row{
         case 0:
             cell?.switchView.isHidden = false
+            if let savedStatus = UserDefaults.standard.value(forKey: "deleteByDefault"){
+                cell?.swtch.isOn = savedStatus as? Bool ?? true
+            }
+            cell?.swtch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
             cell?.lblTitle.text = NSLocalizedString("preferencesOption1", comment: "")
         case 1:
             cell?.switchView.isHidden = true

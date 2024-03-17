@@ -4,8 +4,4 @@
         <attribute name="metadata" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Preferences" representedClassName="Preferences" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="value" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
-    </entity>
 </model>
