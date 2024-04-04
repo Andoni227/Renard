@@ -32,6 +32,10 @@ extension String{
                 return nil
             }
         }
+    
+    func updateExtension() -> String{
+        return self.components(separatedBy: ".").first ?? self
+    }
 }
 
 extension Int64{

@@ -99,7 +99,11 @@ extension UIViewController{
                 if let HEIFImage = data{
                     PHPhotoLibrary.shared().performChanges {
                         let creationRequest = PHAssetCreationRequest.forAsset()
-                        creationRequest.addResource(with: .photo, data: HEIFImage, options: nil)
+                        
+                        let fileOptions = PHAssetResourceCreationOptions()
+                        fileOptions.originalFilename = asset.fileName
+           
+                        creationRequest.addResource(with: .photo, data: HEIFImage, options: fileOptions)
                         creationRequest.creationDate = asset.dateData ?? asset.dateTime?.stringToDate(format: "yyyy-MM-dd HH:mm:ss")
                         
                     } completionHandler: { success, error in

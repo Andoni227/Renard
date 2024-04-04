@@ -10,6 +10,7 @@ import Photos
 
 struct ImageObject{
     var image: UIImage
+    var fileName: String?
     var dateTime: String?
     var dateData: Date?
     var metadata: [String: Any]?

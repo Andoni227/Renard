@@ -30,7 +30,8 @@ extension PHAsset {
     
     //Convierte un PHAsset a un ImageObject
     func toImageObject(completion: @escaping (ImageObject) -> Void){
-        var object: ImageObject = ImageObject.init(image: UIImage())
+        let originalFileName = PHAssetResource.assetResources(for: self).first?.originalFilename.updateExtension()
+        var object: ImageObject = ImageObject.init(image: UIImage(), fileName: originalFileName)
         
         self.toUIImage(completion: { image in
             
