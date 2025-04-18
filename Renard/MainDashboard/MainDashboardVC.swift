@@ -400,24 +400,20 @@ extension MainDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource,
 
 extension MainDashboardVC: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        var convertedFiles: [ImageObject] = []
+        //let convertedFiles: [ImageObject] = []
         
         for url in urls {
             guard url.startAccessingSecurityScopedResource() else {
                 print("No se pudo acceder al recurso seguro.")
                 return
             }
-            
-            url.toImageObject(fromFiles: true, completion: { imgObj in
-                convertedFiles.append(imgObj)
-            })
 
             url.stopAccessingSecurityScopedResource()
         }
         
-        for file in convertedFiles{
+        /*for file in convertedFiles{
             
-        }
+        } */
         
     }
     

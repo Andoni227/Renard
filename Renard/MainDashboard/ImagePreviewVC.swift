@@ -14,7 +14,6 @@ class ImagePreviewVC: UIViewController{
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var btnSave: UIBarButtonItem!
-    @IBOutlet weak var btnShare: UIBarButtonItem!
     // @IBOutlet weak var btnSaveMetadata: UIBarButtonItem!
     @IBOutlet weak var swtch: UISwitch!
     @IBOutlet weak var lblIndicator: UILabel!
@@ -55,7 +54,6 @@ class ImagePreviewVC: UIViewController{
     func loadAsset(){
         DispatchQueue.main.async { [self] in
             btnSave.customView?.isUserInteractionEnabled = false
-            btnShare.customView?.isUserInteractionEnabled = false
             showLoading(title: NSLocalizedString("downloading", comment: ""))
         }
         
@@ -66,21 +64,18 @@ class ImagePreviewVC: UIViewController{
                         asset.toImageObject(completion: { [self] object in
                             DispatchQueue.main.async { [self] in
                                 btnSave.customView?.isUserInteractionEnabled = true
-                                btnShare.customView?.isUserInteractionEnabled = true
                                 imgView.image = object.image
                                 selectedObject = object
                             }
                             
                             if receivedAsset?.getType() == .HEIC{
                                 btnSave.isEnabled = false
-                                btnShare.isEnabled = false
                             }
                         })
                     }
                 }else{
                     DispatchQueue.main.async {
                         self.btnSave.isEnabled = false
-                        self.btnShare.isEnabled = false
                         self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("downloadFailed", comment: ""), buttonText: NSLocalizedString("retry", comment: ""), handler: {_ in
                             self.dismiss(animated: true)
                         })
@@ -113,31 +108,6 @@ class ImagePreviewVC: UIViewController{
     
     @IBAction func close(_ sender: UIButton){
         self.dismiss(animated: true)
-    }
-    
-    @IBAction func exportImage(_ sender: UIButton){
-        showLoading()
-        
-        if var ciImage = CIImage(image: selectedObject?.image ?? UIImage()){
-            
-            if let photoMetaData = selectedObject?.metadata{
-                ciImage = addMetadataToCIImage(ciImage: ciImage, metadata: photoMetaData)
-            }
-            
-            if let dateTime = selectedObject?.dateTime{
-                ciImage = addCustomDateTimeToCIImage(ciImage: ciImage, dateTime: dateTime)
-            }
-            
-            ciImage.toHEIFData(HEIFData: { data in
-                let activityViewController = UIActivityViewController(activityItems: [data!], applicationActivities: nil)
-                self.hideLoading {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [self] in
-                        self.present(activityViewController, animated: true, completion: nil)
-                    })
-                }
-            })
-        }
-        
     }
     
     @IBAction func saveToCameraRoll(_ sender: UIButton){

@@ -132,47 +132,6 @@ extension PHAsset {
     }
 }
 
-extension URL{
-    func toImageObject(fromFiles: Bool = false, completion: @escaping (ImageObject) -> Void){
-        do {
-            let imageData = try Data(contentsOf: self)
-            guard let image = UIImage(data: imageData) else {
-                print("No se pudo crear la imagen desde los datos.")
-                return
-            }
-            var object: ImageObject = ImageObject.init(image: UIImage())
-        
-            object.image = image
-            
-            var stringPath = self.path
-            
-            do {
-                let attributes = try FileManager.default.attributesOfItem(atPath: stringPath)
-                object.dateData = attributes[.creationDate] as? Date
-               } catch {
-                   print("Error al obtener la fecha de creación: \(error.localizedDescription)")
-                   return
-               }
-            
-            if let imageSource = CGImageSourceCreateWithURL(self as CFURL, nil) {
-                let metadata = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [String: Any]
-                object.metadata = metadata
-                if let dateObject = metadata?["{TIFF}"] as? [String:Any]{
-                    if let dateTime = dateObject["DateTime"] as? String{
-                        object.dateTime = dateTime.convertDate()
-                    }
-                }
-                
-                completion(object)
-            }
-    
-          } catch {
-              print("Error al cargar la imagen: \(error.localizedDescription)")
-              return
-          }
-    }
-}
-
 enum sizeFormat{
     case humanReadable
     case inMegabytes
