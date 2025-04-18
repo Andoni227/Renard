@@ -33,21 +33,45 @@ class PreferencesViewController: UIViewController{
     
     func changeCompressionAlert(){
         let alert = UIAlertController(title: "Renard", message: NSLocalizedString("preferencesOption2", comment: ""), preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("preferencesOption2_1", comment: ""), style: .default, handler: {_ in
-            UserDefaults.standard.setValue(false, forKey: "maximumCompression")
-            self.table.reloadData()
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("preferencesOption2_2", comment: ""), style: .default, handler: {_ in
-            self.maxinumCompressionAlert()
-        }))
+        
+        var levelCompression = -1
+        for value in stride(from: 0.7, through: 0.9, by: 0.1) {
+            levelCompression += 1
+            let alertAction = UIAlertAction(title: NSLocalizedString("preferencesOption2_\(levelCompression)", comment: ""), style: .default, handler: {_ in
+                if value == 0.0{
+                    self.maxinumCompressionAlert()
+                }else{
+                    UserDefaults.standard.setValue(Double(String(format: "%.1f", value)), forKey: "compressionLevel")
+                    self.table.reloadData()
+                }
+            })
+            alert.addAction(alertAction)
+        }
+        
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
         self.present(alert, animated: true)
     }
     
+    func getCompression() -> String{
+        let savedPreference = UserDefaults.standard.value(forKey: "compressionLevel") as? Double
+        switch savedPreference{
+        case 0.7:
+            return NSLocalizedString("preferencesOption2_0", comment: "")
+        case 0.8:
+            return NSLocalizedString("preferencesOption2_1", comment: "")
+        case 0.9:
+            return NSLocalizedString("preferencesOption2_2", comment: "")
+        case .none:
+            return NSLocalizedString("preferencesOption2_1", comment: "")
+        case .some(_):
+            return NSLocalizedString("preferencesOption2_1", comment: "")
+        }
+    }
+    
     func maxinumCompressionAlert(){
-        let alert = UIAlertController(title: NSLocalizedString("attention", comment: ""), message: NSLocalizedString("preferencesOption2_3", comment: ""), preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("attention", comment: ""), message: NSLocalizedString("preferencesOption2_6", comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default, handler: {_ in
-            UserDefaults.standard.setValue(true, forKey: "maximumCompression")
+            UserDefaults.standard.setValue(0.0, forKey: "compressionLevel")
             self.table.reloadData()
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
@@ -81,10 +105,7 @@ extension PreferencesViewController: UITableViewDelegate, UITableViewDataSource{
             cell?.lblTitle.text = NSLocalizedString("preferencesOption1", comment: "")
         case 1:
             cell?.switchView.isHidden = true
-            var compressionLevel = NSLocalizedString("preferencesOption2_1", comment: "")
-            if let savedCompressionLvl = UserDefaults.standard.value(forKey: "maximumCompression") as? Bool{
-                compressionLevel = savedCompressionLvl ? NSLocalizedString("preferencesOption2_2", comment: "") : NSLocalizedString("preferencesOption2_1", comment: "")
-            }
+            let compressionLevel = getCompression()
             cell?.lblTitle.text = "\(NSLocalizedString("preferencesOption2", comment: "")): \(compressionLevel)"
         default:
             cell?.switchView.isHidden = false

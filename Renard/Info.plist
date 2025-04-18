@@ -33,13 +33,30 @@
 			</array>
 		</dict>
 	</dict>
-    <key>NSPersistentContainer</key>
-    <dict>
-        <key>name</key>
-        <string>Camera</string>
-    </dict>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Tu explicación aquí</string>
+	<key>NSPersistentContainer</key>
+	<dict>
+		<key>name</key>
+		<string>Camera</string>
+	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Se requiere acceso a tu galeria para convertir imagenes</string>
+    <key>UIFileSharingEnabled</key>
+    <true/>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+    <key>CFBundleDocumentTypes</key>
+        <array>
+            <dict>
+                <key>LSItemContentTypes</key>
+                <array>
+                    <string>public.image</string>
+                </array>
+                <key>CFBundleTypeName</key>
+                <string>image</string>
+                <key>LSHandlerRank</key>
+                <string>Default</string>
+            </dict>
+        </array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>

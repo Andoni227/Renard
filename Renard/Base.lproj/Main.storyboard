@@ -300,12 +300,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Renard" largeTitleDisplayMode="never" id="LaG-2w-Dyy">
-                        <barButtonItem key="leftBarButtonItem" image="info.circle.fill" catalog="system" id="sSN-1Z-iC3">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="6Qb-LS-3Iq" kind="show" id="OdC-K1-4F5"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="info.circle.fill" catalog="system" id="sSN-1Z-iC3">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="6Qb-LS-3Iq" kind="show" id="OdC-K1-4F5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="folder" catalog="system" id="9ny-JK-TxW">
+                                <connections>
+                                    <action selector="importFromFiles:" destination="AQM-Ne-41H" id="wA9-bp-JGE"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Seleccionar" id="AU2-TF-Zsn">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -484,11 +491,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="folder" catalog="system" width="128" height="96"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
-        <image name="square.and.arrow.up" catalog="system" width="32" height="32"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -61,7 +61,7 @@ class MainDashboardVC: UIViewController {
         
         photoLibraryCollectionView.delegate = self
         photoLibraryCollectionView.dataSource = self
- 
+        
         photoLibraryCollectionView.backgroundColor = UIColor.renardBackgroundHeavy()
         
         titleCollectionView.backgroundColor = UIColor.renardDarkBlue()
@@ -72,7 +72,7 @@ class MainDashboardVC: UIViewController {
         
         registerCells()
         setUpRefreshControl()
-
+        
         customizeView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateLibrary), name: Notification.Name("updateLibrary"), object: nil)
@@ -202,46 +202,19 @@ class MainDashboardVC: UIViewController {
     
     func fetchCompressions(){
         if imagesToExport.count > 0{
-            print("_: QUEDAN IMAGENES POR EXPORTAR, INICIANDO EXPORTACIÓN")
             if let image = imagesToExport.first{
-                print("_: VERIFICAR SI IMAGEN ESTÁ DESCARGADA")
-                var securityLock = false{
-                    didSet{
-                        print("_: CAMBIO EN BLOQUEO DE SEGURIDAD \(securityLock)")
-                    }
-                }
-                image.asset.isLocalItem(completion: { isLocal in
-                    if securityLock == false{
-                        securityLock = true
-                        if isLocal{
-                            print("_: IMAGEN YA DESCARGADA")
-                            print("_: CONVERTIR IMAGEN A OBJETO...")
-                            image.asset.toImageObject(completion: { [self] object in
-                                print("_: INICIAR LLAMADO A FUNCIÓN DE EXPORT")
-                                exportImage(asset: object, { success, error in
-                                    if success == false{
-                                        self.hideLoading(completion: {
-                                            self.imagesToExport.removeAll()
-                                            self.imagesToExportMirror.removeAll()
-                                            self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("unknownErrorSaving", comment: ""))
-                                        })
-                                    }else {
-                                        if self.imagesToExport.count > 0{
-                                            print("_: EXPORTACIÓN CORRECTA, ELIMINANDO DEL ARRAY...")
-                                            _ = self.imagesToExport.removeFirst()
-                                            print("_: LLAMANDO A FUNCIÓN RECURSIVA")
-                                            self.fetchCompressions()
-                                        }
-                                    }
-                                })
-                            })
-                        }else{
-                            self.hideLoading(completion: {
-                                self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("unknownErrorExporting", comment: ""))
-                            })
+                convertAndSaveAssetAsHEIF(from: image.asset, completion: { success, error in
+                    if success == false{
+                        self.hideLoading(completion: {
+                            self.imagesToExport.removeAll()
+                            self.imagesToExportMirror.removeAll()
+                            self.showAlertWithLottie(lottie: .FoxUpset, labelText: NSLocalizedString("unknownErrorSaving", comment: ""))
+                        })
+                    }else {
+                        if self.imagesToExport.count > 0{
+                            _ = self.imagesToExport.removeFirst()
+                            self.fetchCompressions()
                         }
-                    }else{
-                        print("_: SE EJECUTÓ UN BLOQUEO DE SEGURIDAD")
                     }
                 })
             }
@@ -427,13 +400,27 @@ extension MainDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource,
 
 extension MainDashboardVC: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-          for url in urls {
-              url.toImageObject(completion: { object in 
-                  print("SI SE PUDO")
-              })
-          }
-      }
-      
+        var convertedFiles: [ImageObject] = []
+        
+        for url in urls {
+            guard url.startAccessingSecurityScopedResource() else {
+                print("No se pudo acceder al recurso seguro.")
+                return
+            }
+            
+            url.toImageObject(fromFiles: true, completion: { imgObj in
+                convertedFiles.append(imgObj)
+            })
+
+            url.stopAccessingSecurityScopedResource()
+        }
+        
+        for file in convertedFiles{
+            
+        }
+        
+    }
+    
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         print("Selección de documentos cancelada")
     }

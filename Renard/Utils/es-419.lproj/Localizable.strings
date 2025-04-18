@@ -66,8 +66,9 @@ saveAVIFAlert = "Esta imagen está en formato AVIF el cual es más eficiente que
 preferences = "Preferencias";
 preferencesOption1 = "Eliminar imagenes originales de forma predeterminada";
 preferencesOption2 = "Nivel de compresión";
-preferencesOption2_1 = "Normal";
-preferencesOption2_2 = "Muy alto";
+preferencesOption2_0 = "Alto";
+preferencesOption2_1 = "Equilibrado";
+preferencesOption2_2 = "Bajo";
 attention = "Atención";
-preferencesOption2_3 = "Seleccionar un nivel de compresión muy alto puede provocar que se pierdan algunos colores en zonas obscuras y puede no ser efectivo en imagenes muy pequeñas, ¿Deseas continuar?";
+preferencesOption2_6 = "Seleccionar un nivel de compresión muy alto puede provocar que se pierdan algunos colores en zonas obscuras y puede no ser efectivo en imagenes muy pequeñas, ¿Deseas continuar?";
 

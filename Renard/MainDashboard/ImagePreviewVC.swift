@@ -91,32 +91,24 @@ class ImagePreviewVC: UIViewController{
     }
     
     func convertAndSaveInCameraRoll(){
-        showLoading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [self] in
-            if let selectedImage = selectedObject{
-                exportImage(asset: selectedImage, { success, error in
-                    if let error = error {
-                        self.showAlertWithLottie(lottie: .FoxUpset, labelText: "\(NSLocalizedString("unknownErrorSaving", comment: "")) \n\(error.localizedDescription)")
-                    } else {
-                        self.clearTemporaryDirectory()
-                    }
-                    
-                    self.hideLoading {
-                        self.showAlertWithLottie(lottie: .FoxSuccess, labelText: NSLocalizedString("saveSuccess", comment: ""), buttonText: NSLocalizedString("accept", comment: ""), handler: { _ in
-                            if self.swtch.isOn{
-                                if let asset = self.receivedAsset{
-                                    self.delete(assets: [asset])
-                                }
-                            }else{
-                                self.dismiss(animated: true, completion: {
-                                    NotificationCenter.default.post(name: Notification.Name("updateLibrary"), object: nil)
-                                })
+        if let receivedAsset = receivedAsset{
+            showLoading()
+            convertAndSaveAssetAsHEIF(from: receivedAsset, completion: { success, error in
+                self.hideLoading {
+                    self.showAlertWithLottie(lottie: .FoxSuccess, labelText: NSLocalizedString("saveSuccess", comment: ""), buttonText: NSLocalizedString("accept", comment: ""), handler: { _ in
+                        if self.swtch.isOn{
+                            if let asset = self.receivedAsset{
+                                self.delete(assets: [asset])
                             }
-                        })
-                    }
-                })
-            }
-        })
+                        }else{
+                            self.dismiss(animated: true, completion: {
+                                NotificationCenter.default.post(name: Notification.Name("updateLibrary"), object: nil)
+                            })
+                        }
+                    })
+                }
+            })
+        }
     }
     
     @IBAction func close(_ sender: UIButton){
@@ -151,7 +143,7 @@ class ImagePreviewVC: UIViewController{
     @IBAction func saveToCameraRoll(_ sender: UIButton){
         if receivedAsset?.getType() == .AVIF{
             let alert = UIAlertController(title: "Renard", message: NSLocalizedString("saveAVIFAlert", comment: ""), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default, handler: { [self]_ in 
+            alert.addAction(UIAlertAction(title: NSLocalizedString("accept", comment: ""), style: .default, handler: { [self]_ in
                 convertAndSaveInCameraRoll()
             }))
             alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel))
