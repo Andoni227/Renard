@@ -32,7 +32,7 @@ class PreferencesViewController: UIViewController{
     }
     
     func changeCompressionAlert(){
-        let alert = UIAlertController(title: "Renard", message: NSLocalizedString("preferencesOption2", comment: ""), preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Renard", message: NSLocalizedString("preferencesOption2", comment: ""), preferredStyle:  UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
         
         var levelCompression = -1
         for value in stride(from: 0.7, through: 0.9, by: 0.1) {
