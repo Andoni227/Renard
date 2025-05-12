@@ -76,6 +76,7 @@ class MainDashboardVC: UIViewController {
         customizeView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateLibrary), name: Notification.Name("updateLibrary"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openPhoto), name: Notification.Name("didReceiveExternalImage"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -153,8 +154,8 @@ class MainDashboardVC: UIViewController {
         var avaliableFormats: Set<ImageType> = []
         
         fetchResult.enumerateObjects { (asset, _, _) in
-                self.photos.append(AssetObject.init(asset: asset, format: asset.getType(), resolution: asset.getResolution()))
-                avaliableFormats.insert(asset.getType())
+            self.photos.append(AssetObject.init(asset: asset, format: asset.getType(), resolution: asset.getResolution()))
+            avaliableFormats.insert(asset.getType())
         }
         
         for format in avaliableFormats{
@@ -264,6 +265,17 @@ class MainDashboardVC: UIViewController {
         dataTypes.removeAll()
         cacheImages.removeAll()
         fetchPhotos()
+    }
+    
+    @objc func openPhoto(notification: NSNotification){
+        guard let url = IncomingFileManager.shared.pendingImageURL else { return }
+            IncomingFileManager.shared.pendingImageURL = nil
+
+            if url.startAccessingSecurityScopedResource() {
+                do { url.stopAccessingSecurityScopedResource() }
+                
+             
+            }
     }
     
     @IBAction func saveSelectedImages(_ sender: UIButton){

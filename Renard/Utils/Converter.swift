@@ -28,7 +28,6 @@ extension UIViewController{
                 return
             }
             
-            // Nombre del archivo original convertido a .heic
             var originalFilename = "converted.heic"
             if let assetResource = PHAssetResource.assetResources(for: asset).first {
                 let baseName = (assetResource.originalFilename as NSString).deletingPathExtension
@@ -48,12 +47,10 @@ extension UIViewController{
             
             print("_: INICIANDO COMPRESIÓN A NIVEL \(compressionLevel ?? 0.6)")
             
-            // Configura calidad máxima
             let compressionOptions: [CFString: Any] = [
                 kCGImageDestinationLossyCompressionQuality: compressionLevel ?? 0.6
             ]
             
-            // Añade imagen con todos los metadatos originales
             CGImageDestinationAddImageFromSource(destination, source, 0, compressionOptions as CFDictionary)
             
             guard CGImageDestinationFinalize(destination) else {
@@ -66,7 +63,6 @@ extension UIViewController{
                 return
             }
             
-            // Guarda en la galería
             PHPhotoLibrary.shared().performChanges {
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 

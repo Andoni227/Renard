@@ -42,6 +42,7 @@
 		F09D9EDE2A3670AB00884A73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09D9EDC2A3670AB00884A73 /* Main.storyboard */; };
 		F09D9EE02A3670AC00884A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09D9EDF2A3670AC00884A73 /* Assets.xcassets */; };
 		F09D9EE32A3670AC00884A73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09D9EE12A3670AC00884A73 /* LaunchScreen.storyboard */; };
+		F0AD327C2DD18F7900F08BB4 /* IncomingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AD327B2DD18F7300F08BB4 /* IncomingImage.swift */; };
 		F0B49A5B2B7E91FF00A062BF /* OpenFinderUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B49A5A2B7E91FF00A062BF /* OpenFinderUtility.swift */; };
 		F0DAD1282A75CCEC00EA67AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0DAD12A2A75CCEC00EA67AE /* Localizable.strings */; };
 		F0E8DCE52A3D2F9C00E7CCE1 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0E8DCDA2A3D2F9600E7CCE1 /* Montserrat-Light.ttf */; };
@@ -100,6 +101,7 @@
 		F09D9EDF2A3670AC00884A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F09D9EE22A3670AC00884A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F09D9EE42A3670AC00884A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0AD327B2DD18F7300F08BB4 /* IncomingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingImage.swift; sourceTree = "<group>"; };
 		F0B49A5A2B7E91FF00A062BF /* OpenFinderUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFinderUtility.swift; sourceTree = "<group>"; };
 		F0DAD1292A75CCEC00EA67AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F0DAD12B2A75CCEF00EA67AE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		F082449E2A368071007379BA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F0AD327B2DD18F7300F08BB4 /* IncomingImage.swift */,
 				F04BECDF2DAEC1E800119679 /* Converter.swift */,
 				F0B49A5A2B7E91FF00A062BF /* OpenFinderUtility.swift */,
 				F082449F2A3680C5007379BA /* UiViewControllerExtensions.swift */,
@@ -399,6 +402,7 @@
 				F04E038F2A3906690042E8A9 /* PhotoCollectionViewCell.swift in Sources */,
 				F04E03852A38E7C80042E8A9 /* TitleCollectionViewCell.swift in Sources */,
 				F08244AF2A377684007379BA /* Extensions.swift in Sources */,
+				F0AD327C2DD18F7900F08BB4 /* IncomingImage.swift in Sources */,
 				F0B49A5B2B7E91FF00A062BF /* OpenFinderUtility.swift in Sources */,
 				F03A3AFB2A3E7718007CDBB6 /* OtherStructs.swift in Sources */,
 				F09D9ED72A3670AB00884A73 /* AppDelegate.swift in Sources */,
@@ -600,6 +604,7 @@
 				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -633,6 +638,7 @@
 				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fx.renard.Renard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -46,7 +46,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     func convertPHAssetToUIImage(asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let imageManager = PHImageManager.default()
         let requestOptions = PHImageRequestOptions()
-        requestOptions.isSynchronous = true
+        requestOptions.isSynchronous = false
+        requestOptions.deliveryMode = .opportunistic
         
         let targetSize = CGSize(width: 200.0, height: 230.0)
         
