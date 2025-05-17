@@ -74,7 +74,7 @@ class MainDashboardVC: UIViewController {
         setUpRefreshControl()
         
         customizeView()
-        
+        clearTemporalDirectory()
         NotificationCenter.default.addObserver(self, selector: #selector(updateLibrary), name: Notification.Name("updateLibrary"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(openPhoto), name: Notification.Name("didReceiveExternalImage"), object: nil)
     }
@@ -233,7 +233,6 @@ class MainDashboardVC: UIViewController {
                     }
                 })
                 self.updateLibrary()
-                
             }
         }
     }
@@ -412,20 +411,14 @@ extension MainDashboardVC: UICollectionViewDelegate, UICollectionViewDataSource,
 
 extension MainDashboardVC: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        //let convertedFiles: [ImageObject] = []
-        
         for url in urls {
             guard url.startAccessingSecurityScopedResource() else {
                 print("No se pudo acceder al recurso seguro.")
                 return
             }
-
             url.stopAccessingSecurityScopedResource()
         }
         
-        /*for file in convertedFiles{
-            
-        } */
         
     }
     

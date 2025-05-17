@@ -66,6 +66,9 @@ extension PHAsset {
     func isLocalItem(completion: @escaping(Bool) -> Void){
         let requestOptions = PHImageRequestOptions()
         requestOptions.isNetworkAccessAllowed = true
+        requestOptions.isSynchronous = false
+        requestOptions.deliveryMode = .highQualityFormat
+        requestOptions.resizeMode = .exact
         
         PHImageManager.default().requestImage(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: requestOptions) { (image, _) in
             if let _ = image {

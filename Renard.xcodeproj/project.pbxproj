@@ -31,7 +31,6 @@
 		F08244A22A368197007379BA /* LoadingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244A12A368197007379BA /* LoadingAlert.swift */; };
 		F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AA2A369D9C007379BA /* ImageObjects.swift */; };
 		F08244AF2A377684007379BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08244AE2A377684007379BA /* Extensions.swift */; };
-		F082C6C82BA642BE0081C5C8 /* CIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */; };
 		F082C6CA2BA656A60081C5C8 /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082C6C92BA656A60081C5C8 /* PreferencesVC.swift */; };
 		F082C6CE2BA6AAD70081C5C8 /* PreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082C6CC2BA6AAD70081C5C8 /* PreferencesCell.swift */; };
 		F082C6CF2BA6AAD70081C5C8 /* PreferencesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F082C6CD2BA6AAD70081C5C8 /* PreferencesCell.xib */; };
@@ -52,6 +51,19 @@
 		F0E918252C0BD3B1005D2A56 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F0E918242C0BD3B1005D2A56 /* PrivacyInfo.xcprivacy */; };
 		F0EE602F2A48DE2400AB5AAC /* CacheDataSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE602E2A48DE2400AB5AAC /* CacheDataSingleton.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F02AB01B2DD7BF2700855661 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F006F4AF2A461FF300DAA1EB /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
@@ -88,7 +100,6 @@
 		F08244A82A368D64007379BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F08244AA2A369D9C007379BA /* ImageObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObjects.swift; sourceTree = "<group>"; };
 		F08244AE2A377684007379BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIImageExtensions.swift; sourceTree = "<group>"; };
 		F082C6C92BA656A60081C5C8 /* PreferencesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
 		F082C6CC2BA6AAD70081C5C8 /* PreferencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCell.swift; sourceTree = "<group>"; };
 		F082C6CD2BA6AAD70081C5C8 /* PreferencesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesCell.xib; sourceTree = "<group>"; };
@@ -209,7 +220,6 @@
 				F082449F2A3680C5007379BA /* UiViewControllerExtensions.swift */,
 				F08244A12A368197007379BA /* LoadingAlert.swift */,
 				F08244AE2A377684007379BA /* Extensions.swift */,
-				F082C6C72BA642BE0081C5C8 /* CIImageExtensions.swift */,
 				F008C2C32A37A6F900DAB89B /* MediaExtensions.swift */,
 				F04E03792A38C40F0042E8A9 /* AppDataCleaner.swift */,
 				F0DAD12A2A75CCEC00EA67AE /* Localizable.strings */,
@@ -301,6 +311,7 @@
 				F09D9ECF2A3670AB00884A73 /* Sources */,
 				F09D9ED02A3670AB00884A73 /* Frameworks */,
 				F09D9ED12A3670AB00884A73 /* Resources */,
+				F02AB01B2DD7BF2700855661 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -321,7 +332,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					F09D9ED22A3670AB00884A73 = {
@@ -392,7 +403,6 @@
 				F008C2C42A37A6F900DAB89B /* MediaExtensions.swift in Sources */,
 				F082C6CA2BA656A60081C5C8 /* PreferencesVC.swift in Sources */,
 				F04BECE02DAEC1F400119679 /* Converter.swift in Sources */,
-				F082C6C82BA642BE0081C5C8 /* CIImageExtensions.swift in Sources */,
 				F08244AB2A369D9C007379BA /* ImageObjects.swift in Sources */,
 				F08852E42B60349D00AD33DE /* Camera.xcdatamodeld in Sources */,
 				F0EE602F2A48DE2400AB5AAC /* CacheDataSingleton.swift in Sources */,

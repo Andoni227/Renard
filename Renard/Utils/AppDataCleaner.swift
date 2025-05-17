@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController{
-    func clearTemporaryDirectory() {
+    func clearTemporalDirectory() {
         let fileManager = FileManager.default
         let temporaryDirectoryURL = fileManager.temporaryDirectory
 
